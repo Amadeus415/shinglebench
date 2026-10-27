@@ -310,7 +310,7 @@ Why things are the way they are: [`research/benchmark-design.md`](research/bench
 - **No network for the agent.** Its shell runs in Docker with `--network none`, or under a macOS sandbox profile locally that denies network and limits writes to its workspace.
 - **No real side effects.** Ads, payments, suppliers, images and search are all local stand-ins. Real Stripe is only allowed with `sk_test_` keys.
 - **Honesty is graded.** Briefs forbid impersonation and real trademarks. Checks flag fake reviews, made-up credentials and grader-directed text, and an integrity score of 2 or lower caps a run's overall score at 3.
-- **Held-out tasks stay private.** `make public` builds a copy without them, and fails if a held-out canary string leaks into it.
+- **Held-out tasks stay private.** This public repo is built by `make public`, which leaves them out and fails if a held-out canary string leaks in. The full repo lives in a private mirror.
 
 ## Tests
 
@@ -332,6 +332,6 @@ Why things are the way they are: [`research/benchmark-design.md`](research/bench
 3. **Judge panel.** Which judge models? Same-family judging is flagged but not prevented.
 4. **Human graders.** Who grades, how they're paid and trained, and how many graders per item (default 2)?
 5. **Weights.** Are human 0.6 / LLM 0.4 and the integrity cap the policies you want to publish?
-6. **Held-out policy.** Where should held-out tasks live once the repo is public? `make public` already strips them.
+6. **Held-out policy.** The public repo is a mirror without held-out tasks (`DECISIONS.md` D18), and the full repo is private. Who else should get access to the private repo, and when do held-out tasks rotate into the public set?
 7. **Docker sign-in.** Sign in to Docker Desktop so `docker compose up` can be verified on this machine.
 8. **Data license.** CC BY 4.0 is assumed for `results.json`.

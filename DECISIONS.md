@@ -53,3 +53,6 @@ Docker Desktop on the build machine refuses all engine calls until the user sign
 
 ## D17. Ports
 App on 8000 and site on 8080. Port 8765 is taken by another local app on the build machine, so defaults avoid it.
+
+## D18. Two GitHub repos: public mirror and private source
+`Amadeus415/shinglebench` (public) is built from `make public`, so it never contains `tasks/heldout/` or held-out canaries, and its history never has. `Amadeus415/shinglebench-private` holds the full repo and history. Making one repo public would have exposed the held-out set in every past commit. `dist/public` is the public repo's working copy (the export keeps its `.git`). Held-out-only tests skip when the folder is absent, so both repos pass CI.

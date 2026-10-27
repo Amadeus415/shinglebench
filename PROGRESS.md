@@ -12,3 +12,5 @@
 - M8/M9 done: grading app (blind absolute/pairwise, QC, admin, export), dashboard, run explorer, trajectories, round report; Playwright-driven UI smoke test grades through the UI.
 - M10 done: company site (home specimen plate, leaderboard, showcase + case files, methodology, labs + working contact form, Report 01); screenshots reviewed at desktop and mobile; fixed duplicate-id bug in contact form.
 - M11: `make dev` / `shingle up`, Dockerfile + compose (validated; Docker Desktop sign-in blocks running it here), CI, README, 28 tests passing.
+- Pushed to GitHub (private), CI green. Rewrote README as a guided tour with mermaid diagrams and real screenshots (`scripts/readme_shots.py` → `docs/img/`).
+- Went public via a separate mirror (D18): renamed the full repo to `shinglebench-private` and published the held-out-free export as public `shinglebench`. Verified no held-out ids or canaries in it, its own test suite passes (27 + 2 skipped), and public CI is green.
