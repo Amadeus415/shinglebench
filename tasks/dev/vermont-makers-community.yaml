@@ -1,0 +1,87 @@
+schema_version: "1.0"
+id: vermont-makers-community
+version: 1
+split: dev
+category: info_community
+tier: 1
+title: Paid community for rural Vermont makers
+brief: |
+  You have been a woodworker in Vermont's Northeast Kingdom for twenty years. Most makers you know
+  (potters, woodworkers, weavers, blacksmiths, jewelers) work alone, sell at craft fairs and online,
+  and have nobody to ask about pricing, booth fees or which fairs are worth the drive.
+
+  Start a paid membership community for makers in rural Vermont. Members get a monthly online
+  critique session, a shared calendar of craft fairs and markets, a pricing workshop every quarter, an
+  opt-in members' directory, and a quarterly in-person meetup in St. Johnsbury. Broadband is patchy
+  here and many members will use their phones, so the site has to be light and simple.
+
+  Decide what membership costs and what is included, build a website where makers can understand the
+  benefits, see upcoming events, and join with a working checkout in test mode, and run ads to recruit
+  your first 50 members. Each week you will see results; use them to improve.
+market:
+  region: Northeast Kingdom, Vermont, USA (Caledonia, Essex and Orleans counties)
+  country: US
+  city: St. Johnsbury
+  lat: 44.4193
+  lon: -72.0151
+  service_radius_km: 80
+  currency: USD
+  languages: [en]
+  audience_hint: Independent craftspeople in rural Vermont
+budget:
+  total_usd: 600
+  ad_budget_usd: 400
+deliverables: [website, product, brand_doc, business_plan, launch_plan, ad_campaign, checkout, contact_form]
+required_pages: [membership, events, pricing, faq, contact]
+acceptance_criteria:
+  - id: benefits_clear
+    description: The membership page lists each benefit concretely (critique sessions, fair calendar, pricing workshop, directory, meetups).
+    probe: {kind: page_contains, path: /membership, any_text: ["critique", "directory", "meetup", "calendar"]}
+  - id: join_checkout
+    description: A maker can choose a plan and complete checkout in test mode.
+    probe: {kind: checkout_completes, path: /pricing}
+  - id: events_listed
+    description: The events page shows upcoming sessions and the first in-person meetup with date, time and place.
+    probe: {kind: page_contains, path: /events, any_text: ["St. Johnsbury", "meetup", "fair", "session"]}
+  - id: community_rules
+    description: The FAQ covers community guidelines, how the directory works (opt-in), and how to cancel.
+    probe: {kind: page_contains, path: /faq, any_text: ["guideline", "opt", "cancel"]}
+  - id: light_pages
+    description: Pages are light enough for slow rural connections (compressed images, no autoplay video, works on a phone).
+constraints:
+  legal:
+    - Pricing workshops are not tax or legal advice; say so.
+    - The members' directory is opt-in; state what member information is shown and to whom.
+    - State the refund and cancellation policy.
+  brand:
+    - Do not use names or logos of craft marketplaces, guilds or state agencies, or imply partnership.
+  scope:
+    - Vermont-based makers; online community plus quarterly in-person meetups.
+episode:
+  max_steps: 100
+  max_tokens: 2000000
+  max_cost_usd: 25
+  max_wall_clock_min: 120
+  simulated_weeks: 3
+grader_notes:
+  great_looks_like:
+    - Affordable pricing for rural makers (roughly $8-20 per month or $80-180 per year) with a founding-member rate.
+    - Ads target Vermont (and nearby New Hampshire border towns) adults with handmade, craft and small-business interests; creatives look like real workshops, not stock city lifestyle.
+    - The launch plan uses offline channels too (craft fairs, co-ops, general stores, libraries).
+    - Pages are lightweight and readable on a phone.
+    - Iteration responds to weekly results, e.g. testing annual vs. monthly framing.
+  common_failures:
+    - National targeting or targeting hobbyists who don't sell.
+    - Fake member counts or testimonials before launch.
+    - Heavy pages with large hero video that fail on slow connections.
+    - Promising members more sales or income.
+  market_context: The Northeast Kingdom is the most rural, lowest-density part of Vermont, with long winters, patchy broadband in places, and a strong crafts tradition sold through fairs, co-ops and tourism. St. Johnsbury is its largest town. Vermonters favor local and are skeptical of anything that feels corporate; word of mouth is decisive.
+sim:
+  reference_price: 12
+  price_unit: per_month
+  demand: low
+  age_range: [30, 70]
+  relevant_interests: [makers, handmade-goods, arts-and-crafts, small-business, rural-living, community]
+  conversion: checkout
+checks: [site_loads, links, console, lighthouse, mobile, forms, checkout, product_qa, ad_compliance, integrity]
+tags: [community, membership, rural, vermont, makers]

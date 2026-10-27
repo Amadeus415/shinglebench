@@ -1,0 +1,2 @@
+# Held-out tasks never ship in public archives (see scripts/export_public.sh).
+tasks/heldout/** export-ignore

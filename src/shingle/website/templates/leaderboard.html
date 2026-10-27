@@ -1,0 +1,21 @@
+{% extends "base.html" %}{% from "_macros.html" import stamp, demo_banner, leader_table %}{% block title %}Leaderboard · Shingle{% endblock %}{% block body %}
+<h1 style="margin-top:48px">Leaderboard</h1>{{ stamp(res, version) }}
+<p class="lede">Scores run from 1 to 7: would this business plausibly get real customers? They combine blind human grades ({{ (res.weights.human * 100)|int }}%) and LLM judges ({{ (res.weights.llm * 100)|int }}%) where both exist. Each model ran {{ res.tasks|length }} public briefs × {{ res.seeds|length }} seeds.</p>
+{{ demo_banner(res) }}
+<p class="note">Read the intervals before the ranks. Shaded band: the leader's 95% confidence interval. Models whose whiskers reach it are statistically tied with the leader. Rank ranges such as “1–2” show which ranks the data supports.</p>
+{{ ci_chart(ci_rows, width=760, label_w=200)|safe }}
+{{ leader_table(res) }}
+<h2>By dimension</h2><p class="note">Mean combined score per rubric dimension. Darker means higher. <a href="/methodology.html#rubric">What each dimension measures</a>.</p>
+<div class="tablewrap"><table><thead><tr><th>Model</th>{% for d in dims %}<th class="n" title="{{ d.question }}">{{ d.name.split(' ')[0].replace(',', '') }}</th>{% endfor %}</tr></thead><tbody>
+{% for m in res.models %}<tr><td>{{ m.model }}</td>{% for d in dims %}{% set v = m.dims[d.id].combined.mean %}<td class="n" style="{{ heat_cell(v) }}">{{ '%.1f'|format(v) if v is not none else '–' }}</td>{% endfor %}</tr>{% endfor %}</tbody></table></div>
+<h2>By category and difficulty</h2><div class="tablewrap"><table><thead><tr><th>Model</th>{% for c in res.models[0].by_category %}<th class="n">{{ CATEGORY_NAMES[c] }}</th>{% endfor %}{% for t in res.models[0].by_tier %}<th class="n">Tier {{ t }}</th>{% endfor %}</tr></thead><tbody>
+{% for m in res.models %}<tr><td>{{ m.model }}</td>{% for v in m.by_category.values() %}<td class="n">{{ '%.2f'|format(v) }}</td>{% endfor %}{% for v in m.by_tier.values() %}<td class="n">{{ '%.2f'|format(v) }}</td>{% endfor %}</tr>{% endfor %}</tbody></table></div>
+<h2>Reliability and cost</h2><div class="tablewrap"><table><thead><tr><th>Model</th><th class="n">Worst seed</th><th class="n">Seed spread</th><th class="n">Launch-ready (LLM)</th><th class="n">High-severity integrity flags per run</th><th class="n">Steps per run</th><th class="n">Tokens per run</th><th class="n">Cost per run</th></tr></thead><tbody>
+{% for m in res.models %}<tr><td>{{ m.model }}</td><td class="n">{{ '%.1f'|format(m.worst_seed_overall) }}</td><td class="n">{{ '%.2f'|format(m.seed_spread or 0) }}</td><td class="n">{{ '%.0f'|format(100 * (m.acceptable_rate_llm or 0)) }}%</td>
+<td class="n">{{ '%.1f'|format(m.integrity_high_flags_per_run or 0) }}</td><td class="n">{{ m.steps_mean|round|int }}</td><td class="n">{{ '{:,}'.format(m.tokens_mean|int) }}</td><td class="n">${{ '%.2f'|format(m.cost_usd_mean or 0) }}</td></tr>{% endfor %}</tbody></table></div>
+<h2>Can the LLM judges be trusted?</h2><p>Where humans and LLM judges graded the same businesses, this is how closely they agreed. Human-to-human agreement (Krippendorff's α) sets the ceiling.{% if res.human_coverage.synthetic_only or 'demo-grader-1' in res.human_coverage.graders %} In this demo round the “human” grades include scripted demo accounts, so these figures only show the tooling working.{% endif %}</p>
+<div class="tablewrap"><table><thead><tr><th>Dimension</th><th class="n">Judge–human rank correlation</th><th class="n">Mean absolute difference</th><th class="n">Human α</th></tr></thead><tbody>
+{% for d in dims %}{% set a = res.agreement.llm_vs_human.get(d.id) %}<tr><td>{{ d.name }}</td><td class="n">{{ '%.2f'|format(a.spearman) if a and a.spearman is not none else '–' }}</td><td class="n">{{ '%.2f'|format(a.mae) if a else '–' }}</td>
+<td class="n">{{ '%.2f'|format(res.agreement.human_alpha[d.id]) if res.agreement.human_alpha[d.id] is not none else '–' }}</td></tr>{% endfor %}</tbody></table></div>
+<p class="note">Download the full results: <a href="/data/results.json">results.json</a>. Settings: harness {{ res.harness_version }}, prompt {{ res.prompt_version }}, judges {{ res.judges|join(', ') }}. Every model gets an identical system prompt, tools, budgets and step caps.</p>
+{% endblock %}

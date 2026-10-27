@@ -1,0 +1,7 @@
+# Small round used by the test suite and CI: 2 models × 1 task × 1 seed (physical product exercises the most code).
+round: ci-r1
+title: CI round
+models: [mock-diligent, mock-hasty]
+tasks: [self-watering-planters]
+seeds: [1]
+concurrency: 2

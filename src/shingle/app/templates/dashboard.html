@@ -1,0 +1,27 @@
+{% extends "base.html" %}{% block title %}Dashboard{% endblock %}{% block body %}<style>{{ VIZ_CSS|safe }}</style>
+{% if not res %}<h1>Dashboard</h1><p class="card">No graded rounds yet. Run <code>shingle run</code> then <code>shingle grade</code>.</p>{% else %}
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><h1>{{ res.title }} <span class="muted small">{{ res.round }}</span></h1>
+<form method="get"><label class="small">Round <select name="round" onchange="this.form.submit()">{% for r in rounds %}<option {{ 'selected' if r == rname }}>{{ r }}</option>{% endfor %}</select></label></form></div>
+<p class="small muted">Generated {{ res.generated_at }} · rubric {{ res.rubric }} · harness {{ res.harness_version }}/{{ res.prompt_version }} · judges {{ res.judges|join(', ') }} · weights human {{ res.weights.human }}/LLM {{ res.weights.llm }} ·
+human coverage {{ res.human_coverage.runs_with_human }}/{{ res.human_coverage.total_runs }} runs · <a href="/reports/{{ res.round }}">round report</a></p>
+{% if res.uses_mock_models %}<p class="banner">This round includes scripted mock models (no API keys were configured). Treat results as a pipeline demonstration, not a model comparison.</p>{% endif %}
+<div class="card"><h2 style="margin-top:0">Leaderboard</h2>
+{{ ci_chart(ci_rows)|safe }}
+<table style="margin-top:12px"><tr><th>#</th><th>Model</th><th class="num">Overall (combined)</th><th class="num">95% CI</th><th class="num">LLM</th><th class="num">Human</th><th class="num">Elo (LLM pairwise)</th>
+<th class="num">pass^k site works</th><th class="num">Worst seed</th><th class="num">Launch-ready (LLM)</th><th class="num">Cost/run</th><th class="num">Runs</th></tr>
+{% for m in res.models %}<tr><td>{{ m.rank }}{% if m.rank_best != m.rank %}–{{ m.rank_best }}{% endif %}</td><td><strong>{{ m.model }}</strong>{% if m.fallback_used %} <span class="chip warn" title="requested {{ m.requested }}">fallback</span>{% endif %}</td>
+<td class="num">{{ '%.2f'|format(m.overall.combined.mean) }}</td><td class="num">{{ '%.2f'|format(m.overall.combined.lo) }}–{{ '%.2f'|format(m.overall.combined.hi) }}</td>
+<td class="num">{{ '%.2f'|format(m.overall.llm.mean) if m.overall.llm.mean is not none else '–' }}</td><td class="num">{{ '%.2f'|format(m.overall.human.mean) if m.overall.human.mean is not none else '–' }}</td>
+<td class="num">{{ m.elo_llm|round|int if m.elo_llm else '–' }}</td><td class="num">{{ '%.0f'|format(100 * m.pass_k_site_works) }}%</td><td class="num">{{ m.worst_seed_overall }}</td>
+<td class="num">{{ '%.0f'|format(100 * m.acceptable_rate_llm) if m.acceptable_rate_llm is not none else '–' }}%</td><td class="num">${{ '%.2f'|format(m.cost_usd_mean or 0) }}</td><td class="num">{{ m.n_runs }}</td></tr>{% endfor %}</table></div>
+<div class="card"><h2 style="margin-top:0">By dimension (combined mean)</h2><table class="heat"><tr><th>Model</th>{% for d in dims %}<th class="num" title="{{ d.question }}">{{ d.id }}</th>{% endfor %}</tr>
+{% for m in res.models %}<tr><td>{{ m.model }}</td>{% for d in dims %}{% set v = m.dims[d.id].combined.mean %}<td class="num" style="{{ heat_cell(v) }}">{{ '%.1f'|format(v) if v is not none else '–' }}</td>{% endfor %}</tr>{% endfor %}</table></div>
+<div class="grid2" style="grid-template-columns:1fr 1fr"><div class="card"><h2 style="margin-top:0">By category &amp; tier</h2><table><tr><th>Model</th>{% for c in res.models[0].by_category %}<th class="num">{{ c.replace('_', ' ') }}</th>{% endfor %}{% for t in res.models[0].by_tier %}<th class="num">tier {{ t }}</th>{% endfor %}</tr>
+{% for m in res.models %}<tr><td>{{ m.model }}</td>{% for c, v in m.by_category.items() %}<td class="num">{{ '%.2f'|format(v) }}</td>{% endfor %}{% for t, v in m.by_tier.items() %}<td class="num">{{ '%.2f'|format(v) }}</td>{% endfor %}</tr>{% endfor %}</table></div>
+<div class="card"><h2 style="margin-top:0">Score vs cost</h2>{{ scatter(cost_pts)|safe }}</div></div>
+<div class="card"><h2 style="margin-top:0">Runs <span class="muted small">variance across seeds</span></h2><table><tr><th>Run</th><th>Task</th><th>Model</th><th class="num">Seed</th><th class="num">Overall</th><th class="num">LLM</th><th class="num">Human</th><th>Gate</th><th>Checks</th><th class="num">Sim. revenue</th><th class="num">Steps</th><th class="num">Cost</th></tr>
+{% for r in res.runs|sort(attribute='task_id') %}<tr><td><a href="/dashboard/run/{{ r.run_id }}">{{ r.alias }}</a></td><td>{{ r.task_id }}</td><td>{{ r.model }}</td><td class="num">{{ r.seed }}</td>
+<td class="num">{{ '%.2f'|format(r.combined.overall) if r.combined.overall is not none else '–' }}</td><td class="num">{{ '%.2f'|format(r.llm.overall) if r.llm.overall is not none else '–' }}</td><td class="num">{{ '%.2f'|format(r.human.overall) if r.human.overall is not none else '–' }}</td>
+<td><span class="chip {{ 'pass' if r.gate else 'fail' }}">{{ 'works' if r.gate else 'broken' }}</span>{% if r.injection_flag %} <span class="chip fail">injection</span>{% endif %}</td>
+<td class="small">{% for k, v in r.checks.items() if v == 'fail' %}<span class="chip fail">{{ k }}</span>{% endfor %}</td><td class="num">{{ '%.0f'|format(r.sim_revenue) }}</td><td class="num">{{ r.steps }}</td><td class="num">${{ '%.2f'|format(r.cost_usd) }}</td></tr>{% endfor %}</table></div>
+{% endif %}{% endblock %}

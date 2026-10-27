@@ -1,0 +1,27 @@
+{% extends "base.html" %}{% block title %}For labs and enterprises · Shingle{% endblock %}{% block body %}
+<h1 style="margin-top:48px;max-width:18ch">Find out if your model can run a business before your customers do.</h1>
+<p class="lede">We evaluate frontier and open-weight models on long, realistic business-building tasks, graded by blind humans and calibrated LLM judges. You get scores, plus every artifact and trajectory behind them.</p>
+<section class="band"><div class="offers">
+<article><h2 style="margin-top:.3em">Pre-release evaluation</h2><p>Private runs on the held-out suite before launch, under NDA. Results stay with you until you choose to publish, and nothing is shared with other labs.</p><p class="note">You get scores with confidence intervals, a per-dimension breakdown, failure analysis, and run bundles for every episode.</p></article>
+<article><h2 style="margin-top:.3em">Custom brief suites</h2><p>Briefs written for your market: your geographies, languages, price points and compliance rules. Useful for deciding which model to deploy in an agent product that touches commerce.</p><p class="note">You get a versioned private task suite, a rubric adapted to your domain, and repeatable rounds.</p></article>
+<article><h2 style="margin-top:.3em">Grading data</h2><p>Blind human judgments (absolute and pairwise) with rationales, paired with frozen businesses and full trajectories. Useful for training and validating graders and reward models.</p><p class="note">You get licensed datasets, agreement statistics and a judge–human calibration report.</p></article></div></section>
+<section class="band"><h2>How an engagement works</h2><ol><li>We agree on models, suites and budgets. Every model gets identical scaffolding, which we document.</li><li>Episodes run in our sandbox, which has no network access, with simulated ads, payments and suppliers.</li><li>Automated checks run, then LLM judges, then blind human graders, with gold items and attention checks.</li><li>You receive a report like <a href="/blog/report-01.html">Report 01</a>, plus the raw results and bundles.</li></ol>
+<p>We do not take payment to rank models on the public leaderboard. Commercial engagements never change public results.</p></section>
+<section class="band"><h2 id="contact">Talk to us</h2>
+<form class="contact" id="contact-form" action="{{ contact_endpoint }}" method="post">
+<label>Name<input name="name" autocomplete="name" required></label><label>Work email<input name="email" type="email" autocomplete="email" required></label>
+<label>Organization<input name="org" autocomplete="organization"></label><label>You are a<select name="org_type"><option>AI lab</option><option>Enterprise</option><option>Researcher</option><option>Press</option><option>Other</option></select></label>
+<label>Interested in<select name="interest"><option>Pre-release evaluation</option><option>Custom brief suites</option><option>Grading data</option><option>Something else</option></select></label>
+<label>Timeline<select name="timeline"><option>This month</option><option>This quarter</option><option>Exploring</option></select></label>
+<label class="full">What do you want to learn?<textarea name="message" rows="4"></textarea></label>
+<div class="full"><button class="btn" type="submit">Send message</button> <span id="contact-status" class="note" role="status" aria-live="polite"></span></div></form>
+<p class="note">Researchers and press: cite the <a href="/methodology.html#cite">methodology</a> and download <a href="/data/results.json">results.json</a> (CC BY 4.0).</p></section>
+<script>
+document.getElementById("contact-form").addEventListener('submit', async e => {
+  e.preventDefault(); const f = e.target, s = document.getElementById('contact-status');
+  s.textContent = 'Sending…';
+  try { const r = await fetch(f.action, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(Object.fromEntries(new FormData(f)))});
+    if (!r.ok) throw new Error(); f.reset(); s.textContent = 'Message sent. We reply within two business days.';
+  } catch { s.textContent = 'Message not sent: our contact service is unreachable. Please try again shortly.'; }
+});
+</script>{% endblock %}

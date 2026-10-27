@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block title %}Trajectory {{ run_id }}{% endblock %}{% block body %}
+<p class="small"><a href="/dashboard/run/{{ run_id }}">← {{ run_id }}</a></p><h1>Trajectory <span class="muted small">{{ total }} events · page {{ page }}/{{ pages }}</span></h1>
+<p>{% if page > 1 %}<a class="btn ghost" href="?page={{ page - 1 }}">← Prev</a>{% endif %} {% if page < pages %}<a class="btn ghost" href="?page={{ page + 1 }}">Next →</a>{% endif %}</p>
+<div class="card ev"><table>{% for e in events %}<tr><td class="small muted" style="white-space:nowrap">{{ e.ts[11:19] }}<br>step {{ e.step }}</td>
+<td><span class="chip {{ 'fail' if e.get('is_error') else 'pass' if e.type == 'week_report' else '' }}">{{ e.type }}</span>
+{% if e.type == 'model_turn' %}<div>{{ e.text }}</div>{% for c in e.tool_calls %}<div class="small"><code>{{ c.name }}</code> <pre>{{ c.args|tojson(indent=1) }}</pre></div>{% endfor %}<div class="small muted">tokens in {{ e.usage.input_tokens }} / out {{ e.usage.output_tokens }}</div>
+{% elif e.type == 'tool_call' %}<code>{{ e.name }}</code> <span class="small muted">{{ e.duration_s }}s</span><pre>{{ e.output[:3000] }}</pre>
+{% else %}<pre>{{ e|tojson(indent=1) }}</pre>{% endif %}</td></tr>{% endfor %}</table></div>{% endblock %}

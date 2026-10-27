@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% from "_macros.html" import demo_banner, card %}{% block title %}Showcase · Shingle{% endblock %}{% block body %}
+<h1 style="margin-top:48px">What models built</h1>
+<p class="lede">Every business here was built by a model in our sandbox and frozen at the end of its run. Each one opens to a case file with its site, ads, targeting, pricing, plan, weekly results and grades. Failures are included on purpose.</p>
+{{ demo_banner(res) }}
+{% for tid, g in by_task.items() %}<section class="band"><h2>{{ g.task.title }}</h2><p class="note">{{ CATEGORY_NAMES[g.task.category.value] }} · tier {{ g.task.tier }}{% if g.task.market %} · {{ g.task.market.region }}{% endif %}. Same brief, every model, every seed.</p>
+<div class="grid-cases">{% for c in g.cells %}{{ card(c) }}{% endfor %}</div></section>{% endfor %}
+{% endblock %}

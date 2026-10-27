@@ -1,0 +1,87 @@
+schema_version: "1.0"
+id: wedding-planner-template-pack
+version: 1
+split: dev
+category: digital_product
+tier: 2
+title: Planning template pack for independent wedding planners
+brief: |
+  Independent wedding planners run 10 to 30 weddings a year from a laptop, and most of them rebuild
+  the same documents for every couple: a master timeline, a vendor tracker, a budget sheet, a
+  day-of run sheet, a seating plan, and a client intake questionnaire. They lose hours to copy-paste
+  and still miss things.
+
+  Build and launch a pack of professional planning templates for these planners. Pick the format
+  (an all-in-one workspace app, spreadsheets, PDFs, or a mix) and say clearly which tools it works
+  with. The buyer is the planner, not the couple: the pack should make a small planning business look
+  more organized in front of clients and save admin time. Decide what is in the pack, whether there
+  are tiers or licenses (solo planner vs. a studio with assistants), and how buyers get the files
+  after paying. Build a website with previews of each template, pricing, a working checkout in test
+  mode, and instant delivery.
+
+  Your launch market is independent planners in the US and Canada. Run a paid ad test and improve the
+  pack, the page and the ads based on weekly results.
+market:
+  region: United States and Canada (independent wedding planners)
+  country: US
+  currency: USD
+  languages: [en]
+  audience_hint: Solo and small-studio wedding planners running 10-30 weddings a year
+budget:
+  total_usd: 700
+  ad_budget_usd: 450
+deliverables: [website, product, brand_doc, business_plan, launch_plan, ad_campaign, checkout]
+required_pages: [templates, pricing, faq, license, contact]
+acceptance_criteria:
+  - id: template_previews
+    description: Each template in the pack has a preview (image or sample) and a one-line description of what it does.
+    probe: {kind: page_contains, path: /templates, any_text: ["timeline", "vendor", "budget"]}
+  - id: whats_included
+    description: The pricing page lists exactly what each tier includes and which apps or file formats it works with.
+    probe: {kind: page_contains, path: /pricing, any_text: ["include", "templates", "format"]}
+  - id: checkout_works
+    description: A planner can buy the pack and complete checkout in test mode.
+    probe: {kind: checkout_completes, path: /pricing}
+  - id: delivery_explained
+    description: The site explains how files are delivered after purchase and how to copy them into the planner's own tools.
+    probe: {kind: page_contains, path: /faq, any_text: ["download", "access", "duplicate", "copy"]}
+  - id: license_terms
+    description: A license page says who may use the templates (e.g. one planner vs. a studio) and that resale of the templates is not allowed.
+    probe: {kind: page_contains, path: /license, any_text: ["license", "resell", "resale"]}
+constraints:
+  legal:
+    - Include a refund policy that fits a digital download.
+    - Do not include contract or legal templates presented as legal advice; if a client agreement template is included, say it must be reviewed by a lawyer.
+  brand:
+    - Do not use the logos or trade dress of productivity apps, or imply a partnership; describe compatibility factually.
+    - Do not use real wedding venues, magazines or planners' names as endorsements.
+  scope:
+    - Digital templates only; no planning services or coaching.
+episode:
+  max_steps: 140
+  max_tokens: 2500000
+  max_cost_usd: 30
+  max_wall_clock_min: 150
+  simulated_weeks: 4
+grader_notes:
+  great_looks_like:
+    - The pack is real and usable (actual template files or duplicable pages), not just mockup screenshots.
+    - Pricing in a believable range for a pro tool (roughly $39-99 for a solo license, a higher studio tier), with the license difference clear.
+    - Ads target planners by profession and business interests (event planning business, wedding industry) in the US and Canada, not engaged couples; creatives show the tool solving admin pain.
+    - Previews let a planner judge quality before buying; delivery is instant and explained.
+    - Iteration uses weekly data, e.g. adjusting the hero message or tier structure where checkout drop-off is high.
+  common_failures:
+    - Targeting brides, grooms or couples instead of the planner who pays.
+    - Fake testimonials from "top planners" or invented sales counts.
+    - Using a productivity app's logo or implying an official template gallery listing.
+    - A checkout that completes but delivers nothing, or a license that contradicts the FAQ.
+  market_context: Independent wedding planners in North America are small businesses that buy tools to save admin time and look professional to clients. Templates sell through marketplaces and social media, and buyers judge them heavily on previews. The planner, not the couple, is the customer here.
+sim:
+  reference_price: 59
+  price_unit: one_time
+  demand: medium
+  age_range: [26, 50]
+  relevant_interests: [wedding-planning, event-planning, small-business, productivity-apps, notion, entrepreneurship]
+  conversion: checkout
+checks: [site_loads, links, console, lighthouse, mobile, forms, checkout, product_qa, ad_compliance, integrity]
+tags: [templates, download, prosumer, b2c]

@@ -1,0 +1,24 @@
+{% extends "base.html" %}{% block title %}Admin{% endblock %}{% block body %}
+<h1>Admin</h1>
+<div class="card"><h2 style="margin-top:0">Progress</h2><p>{{ items_total }} items · {{ asg_done }}/{{ asg_total }} assignments done{% if asg_total %} ({{ (100 * asg_done / asg_total)|round|int }}%){% endif %} · rounds: {{ rounds|join(', ') or 'none' }}</p>
+<table><tr><th>Grader</th><th>Role</th><th class="num">Done</th><th class="num">Pending</th><th class="num">Median time</th><th class="num">&lt;45s</th><th class="num">Attention fails</th><th class="num">Max gold deviation</th></tr>
+{% for st in stats %}<tr><td>{{ st.g.username }}{% if st.g.synthetic %} <span class="chip warn">scripted demo account</span>{% endif %}</td><td>{{ st.g.role }}</td><td class="num">{{ st.done }}</td><td class="num">{{ st.pending }}</td>
+<td class="num">{{ (st.median_s|round|int ~ 's') if st.median_s else '–' }}</td><td class="num">{{ st.too_fast }}</td>
+<td class="num">{% if st.attention_fail %}<span class="chip fail">{{ st.attention_fail }}</span>{% else %}0{% endif %}</td>
+<td class="num">{% if st.gold_dev %}<span class="chip {{ 'fail' if st.gold_dev > 1 else 'warn' }}">{{ st.gold_dev }}</span>{% elif st.gold_dev == 0 %}0{% else %}–{% endif %}</td></tr>{% endfor %}</table>
+<p class="small muted">QC rules: attention-check failures exclude that grader's judgment; gold deviation &gt; 1 point outside the expected band and median time &lt; 45 s are reviewed.</p></div>
+<div class="card"><h2 style="margin-top:0">Agreement</h2>
+<table><tr><th>Dimension</th><th class="num">Human α (Krippendorff, interval)</th>{% for r in results %}<th class="num">{{ r }}: LLM↔human ρ</th><th class="num">MAE</th><th class="num">LLM judges α</th>{% endfor %}</tr>
+{% for d in dims %}<tr><td>{{ d }}</td><td class="num">{{ '%.2f'|format(alpha[d]) if alpha[d] is not none else '–' }}</td>
+{% for r, res in results.items() %}{% set a = res.agreement.llm_vs_human.get(d) %}<td class="num">{{ '%.2f'|format(a.spearman) if a and a.spearman is not none else '–' }}</td><td class="num">{{ '%.2f'|format(a.mae) if a else '–' }}</td>
+<td class="num">{{ '%.2f'|format(res.agreement.llm_judge_alpha[d]) if res.agreement.llm_judge_alpha[d] is not none else '–' }}</td>{% endfor %}</tr>{% endfor %}</table>
+<p class="small muted">Where LLM↔human correlation is high and MAE low, LLM judges can be trusted for that dimension. Human α is the ceiling.</p></div>
+<div class="card"><h2 style="margin-top:0">Flagged items</h2>{% if flags %}<table><tr><th>When</th><th>Item</th><th>Grader</th><th>Reason</th></tr>
+{% for f, it, g in flags %}<tr><td class="small">{{ f.created_at.strftime('%Y-%m-%d %H:%M') }}</td><td>{{ it.kind }} {{ alias(it.run_a) }}{% if it.run_b %} vs {{ alias(it.run_b) }}{% endif %}</td><td>{{ g.username }}</td><td>{{ f.reason }}</td></tr>{% endfor %}</table>{% else %}<p class="muted">None.</p>{% endif %}</div>
+<div class="card"><h2 style="margin-top:0">Export</h2><a class="btn ghost" href="/admin/export.csv">Judgments CSV</a> <a class="btn ghost" href="/admin/export.json">Judgments JSON</a></div>
+<div class="card"><h2 style="margin-top:0">Add a grader</h2><form method="post" action="/admin/graders" style="display:grid;grid-template-columns:1fr 1fr 140px 120px;gap:8px;align-items:end">
+<label>Username<input type="text" name="username" required></label><label>Password<input type="password" name="password" required></label>
+<label>Role<select name="role"><option>grader</option><option>admin</option></select></label><button class="btn" type="submit">Create</button></form></div>
+<div class="card"><h2 style="margin-top:0">Contact requests (company site)</h2>{% if contacts %}<table><tr><th>When</th><th>Name</th><th>Email</th><th>Org</th><th>Interest</th><th>Message</th></tr>
+{% for c in contacts %}<tr><td class="small">{{ c.created_at.strftime('%Y-%m-%d') }}</td><td>{{ c.data.name }}</td><td>{{ c.data.email }}</td><td>{{ c.data.org }} {{ c.data.org_type }}</td><td>{{ c.data.interest }}</td><td class="small">{{ c.data.message }}</td></tr>{% endfor %}</table>{% else %}<p class="muted">None yet.</p>{% endif %}</div>
+{% endblock %}

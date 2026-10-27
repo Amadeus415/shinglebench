@@ -1,0 +1,36 @@
+{% macro evidence(ev, site_base, label='') %}
+<div class="card ev" data-tabs>
+<div class="tabs" role="tablist">
+<button type="button" data-tab="site-{{ label }}">Live site</button><button type="button" data-tab="shots-{{ label }}">Screenshots</button>
+<button type="button" data-tab="ads-{{ label }}">Ads ({{ ev.creatives|length }})</button><button type="button" data-tab="docs-{{ label }}">Plan &amp; brand</button>
+<button type="button" data-tab="market-{{ label }}">Weeks</button><button type="button" data-tab="checks-{{ label }}">Checks</button></div>
+<div class="panel" data-panel="site-{{ label }}">
+{% if ev.manifest.frozen_site %}<p class="small muted">Frozen at end of episode · forms and test checkout work (submissions go to a scratch store). <a href="{{ site_base(ev.alias) }}" target="_blank" rel="noopener">Open in new tab ↗</a></p>
+<iframe class="site" data-src="{{ site_base(ev.alias) }}" title="Frozen site {{ ev.alias }}" sandbox="allow-forms allow-scripts allow-same-origin allow-popups"></iframe>
+{% else %}<p class="chip fail">This business never deployed a site.</p>{% endif %}</div>
+<div class="panel" data-panel="shots-{{ label }}">{% for mode in ['mobile', 'desktop'] %}<h3>{{ mode|capitalize }}</h3><div class="shots">
+{% for s in ev.shots.get(mode, []) if s.file %}<figure><a href="/b/{{ ev.alias }}/file/{{ s.file }}" target="_blank"><img loading="lazy" src="/b/{{ ev.alias }}/file/{{ s.file }}" alt="{{ mode }} screenshot of {{ s.page }}"></a><figcaption>{{ s.page }}</figcaption></figure>{% endfor %}</div>{% endfor %}</div>
+<div class="panel" data-panel="ads-{{ label }}"><div class="shots">{% for c in ev.creatives %}<figure>
+{% if ev.previews.get(c.ad_id) %}<img loading="lazy" src="/b/{{ ev.alias }}/file/{{ ev.previews[c.ad_id] }}" alt="Ad preview {{ c.ad_id }}">{% endif %}
+<figcaption><span class="chip {{ 'pass' if c.status == 'active' else 'skip' }}">{{ c.status }}</span> → {{ c.creative.landing_path }} · created week {{ c.created_week }}<br>
+Geo: {{ (c.targeting.geo.locations + c.targeting.geo.countries + c.targeting.geo.zips)|join(', ') }}{% if c.targeting.geo.radius_km %} (+{{ c.targeting.geo.radius_km }} km){% endif %}<br>
+Ages {{ c.targeting.age_min }}–{{ c.targeting.age_max }} · {{ c.targeting.interests|join(', ') or 'no interests' }}{% if c.targeting.languages %} · lang {{ c.targeting.languages|join(',') }}{% endif %}</figcaption></figure>{% endfor %}</div></div>
+<div class="panel" data-panel="docs-{{ label }}">{% for name, body in ev.docs.items() %}<h3>{{ name.replace('_', ' ')|capitalize }}</h3><div class="doc">{{ body|safe }}</div>{% else %}<p class="chip fail">No planning documents.</p>{% endfor %}</div>
+<div class="panel" data-panel="market-{{ label }}"><p class="small muted">Simulated customers: a secondary, directional signal. Use it to judge <em>iteration</em>, not as proof of demand.</p>
+<table><tr><th>Wk</th><th class="num">Spend</th><th class="num">Impr.</th><th class="num">Clicks</th><th class="num">CTR</th><th class="num">Conv.</th><th class="num">Revenue</th></tr>
+{% for w in ev.weeks %}<tr><td>{{ w.week }}</td><td class="num">{{ '%.0f'|format(w.totals.spend) }}</td><td class="num">{{ w.totals.impressions }}</td><td class="num">{{ w.totals.clicks }}</td>
+<td class="num">{{ '%.2f'|format(w.totals.ctr * 100) }}%</td><td class="num">{{ w.totals.conversions }}</td><td class="num">{{ '%.0f'|format(w.totals.revenue) }}</td></tr>
+{% if w.feedback %}<tr><td></td><td colspan="6" class="small muted">“{{ w.feedback|join('” · “') }}”</td></tr>{% endif %}{% endfor %}</table>
+<h3>Changes made after launch</h3>{% if ev.changes %}<ul class="small">{% for c in ev.changes[:40] %}<li>{{ c }}</li>{% endfor %}</ul>{% else %}<p class="muted small">None.</p>{% endif %}</div>
+<div class="panel" data-panel="checks-{{ label }}"><p class="small muted">Automated checks are context, not the score.</p>
+<p>{% for k, v in ev.checks.get('summary', {}).items() %}<span class="chip {{ v }}">{{ k }}: {{ v }}</span> {% endfor %}</p>
+{% set qa = ev.checks.get('results', {}).get('product_qa') %}{% if qa %}<h3>Product QA ({{ qa.driver }})</h3><table>{% for c in qa.criteria %}<tr><td><span class="chip {{ c.result }}">{{ c.result }}</span></td><td>{{ c.description }}<div class="small muted">{{ c.evidence }}</div></td></tr>{% endfor %}</table>{% endif %}
+{% set integ = ev.checks.get('results', {}).get('integrity') %}{% if integ and integ.flags %}<h3>Integrity flags</h3><table>{% for f in integ.flags[:25] %}<tr><td><span class="chip {{ 'fail' if f.severity == 'high' else 'warn' if f.severity == 'medium' else 'skip' }}">{{ f.severity }}</span></td><td>{{ f.category }}: “{{ f.match }}”<div class="small muted">{{ f.sources|join(', ') }}</div></td></tr>{% endfor %}</table>{% endif %}</div>
+</div>{% endmacro %}
+
+{% macro brief(task) %}<div class="card"><h2 style="margin-top:0">Brief: {{ task.title }}</h2><details><summary>Read the brief and facts the business was given</summary><div class="brief">{{ task.brief }}
+
+{{ task.facts_block() }}</div></details>
+<h3>What great looks like</h3><ul class="small">{% for g in task.grader_notes.great_looks_like %}<li>{{ g }}</li>{% endfor %}</ul>
+<h3>Common failures</h3><ul class="small">{% for g in task.grader_notes.common_failures %}<li>{{ g }}</li>{% endfor %}</ul>
+<p class="small"><strong>Market context:</strong> {{ task.grader_notes.market_context }}</p></div>{% endmacro %}

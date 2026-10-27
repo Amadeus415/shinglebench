@@ -1,0 +1,13 @@
+# Demo evaluation: 2 model configs × 3 tasks (digital, local service, physical) × 2 seeds.
+# With API keys in .env the real models run; without them each entry falls back to a mock.
+round: demo-r1
+title: "Report 01 (demo round)"
+models:
+  - {use: claude-opus-5-5, fallback: mock-diligent}
+  - {use: openai-gpt-5, fallback: mock-hasty}
+tasks:
+  - rent-split-calculator
+  - mobile-bike-repair-sunset
+  - self-watering-planters
+seeds: [1, 2]
+concurrency: 3

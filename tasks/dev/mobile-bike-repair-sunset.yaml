@@ -1,0 +1,84 @@
+schema_version: "1.0"
+id: mobile-bike-repair-sunset
+version: 1
+split: dev
+category: local_service
+tier: 2
+title: Mobile bike repair in SF's Outer Sunset and Richmond
+brief: |
+  You are starting a mobile bike repair service: a mechanic with a cargo bike and tools comes to the
+  customer's home or office and fixes the bike on the spot. The service covers the Outer Sunset,
+  Inner Sunset and Outer Richmond in San Francisco. These are foggy, residential neighborhoods near
+  Ocean Beach and Golden Gate Park with lots of families, commuters, surfers who bike to the beach,
+  and a growing number of e-bike owners.
+
+  Define the service offering (what jobs you do, what you don't do, how long they take), set prices,
+  and build a website where people can see what's included, check whether you serve their address,
+  and book a visit. Brand the business, create ads, and run a launch campaign on the simulated ad
+  platform. Each week you will see how the campaign and site performed; use that to improve.
+
+  There is one mechanic (the owner) available 30 hours a week. Parts are bought at cost plus markup.
+market:
+  region: Outer Sunset, Inner Sunset and Outer Richmond, San Francisco, CA, USA
+  country: US
+  city: San Francisco
+  neighborhood: Outer Sunset
+  lat: 37.7535
+  lon: -122.4950
+  service_radius_km: 4
+  currency: USD
+  languages: [en, zh]
+  audience_hint: Households and commuters in SF's western neighborhoods
+budget:
+  total_usd: 1500
+  ad_budget_usd: 600
+deliverables: [website, product, brand_doc, business_plan, launch_plan, ad_campaign, booking_flow, contact_form]
+required_pages: [services, pricing, book, contact, faq]
+acceptance_criteria:
+  - id: service_menu
+    description: The site lists specific services (e.g. flat fix, tune-up, brake adjustment, e-bike checks) with a price or price range for each.
+    probe: {kind: page_contains, path: /services, any_text: ["tune", "flat", "brake"]}
+  - id: service_area
+    description: The service area is stated clearly and a visitor can tell whether their neighborhood or ZIP code is covered.
+    probe: {kind: page_contains, path: /, any_text: ["94122", "94116", "Sunset", "Richmond"]}
+  - id: booking_works
+    description: A visitor can request a booking with name, contact, address or ZIP, bike type, issue, and preferred time, and gets a confirmation.
+    probe: {kind: form_submits, path: /book}
+  - id: capacity_realistic
+    description: The plan's weekly job volume fits one mechanic working about 30 hours a week including travel time.
+constraints:
+  legal:
+    - Do not claim certifications, insurance or licenses the business has not been told it has.
+    - State a cancellation policy.
+  brand:
+    - Do not use names, logos or trade dress of real bike shops or bike brands as your own.
+  scope:
+    - Only serve the stated neighborhoods; no shop location.
+episode:
+  max_steps: 140
+  max_tokens: 2500000
+  max_cost_usd: 30
+  max_wall_clock_min: 150
+  simulated_weeks: 4
+grader_notes:
+  great_looks_like:
+    - Clear menu with honest price ranges (e.g. flat fix $25-40 + tube, tune-up $90-140), travel fee or minimum, and an e-bike line item.
+    - Targeting is geo-fenced to the western neighborhoods (ZIPs 94116, 94122, 94121) rather than all of SF; creatives reference local cues (fog, Ocean Beach, Great Highway, Golden Gate Park) without clichés.
+    - Booking flow captures what the mechanic needs to show up prepared (bike type, issue, photos optional).
+    - Unit economics account for travel time, parts margin, and the 30-hour cap; plan shows a realistic jobs-per-week number (roughly 12-25).
+    - Iteration responds to the weekly data, e.g. shifting budget to the best ad set or fixing a booking-page drop-off.
+  common_failures:
+    - Targeting the whole Bay Area or all of San Francisco.
+    - Fake reviews or "certified mechanic" claims.
+    - Pricing that implies 60 jobs a week for one person.
+    - No booking confirmation or a form that silently fails.
+  market_context: The Outer Sunset/Richmond are dense with single-family homes, families and long-time residents; there is a sizeable Chinese-speaking population (Chinese-language copy is a plus). The Great Highway/Sunset Dunes car-free area and Golden Gate Park make cycling common. Few bike shops are west of 19th Ave.
+sim:
+  reference_price: 95
+  price_unit: per_job
+  demand: medium
+  age_range: [25, 60]
+  relevant_interests: [cycling, bike-commuting, e-bikes, mountain-biking, surfing, family-activities]
+  conversion: booking
+checks: [site_loads, links, console, lighthouse, mobile, forms, product_qa, ad_compliance, integrity]
+tags: [local, service, sf, booking]

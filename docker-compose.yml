@@ -1,0 +1,50 @@
+# One command: `docker compose up --build`
+#   - builds the images, runs the demo round end to end (episodes, bundles, checks, judges, grading queue, report, site)
+#   - then serves the grading app + dashboard on :8000 and the company site on :8080
+name: shingle
+x-env: &env
+  DATABASE_URL: postgresql+psycopg://shingle:shingle@db:5432/shingle
+  SHINGLE_DATA_DIR: /data
+  SHINGLE_HOST_DATA_DIR: ${PWD:-.}/var
+  SANDBOX_BACKEND: auto
+  APP_URL: http://localhost:8000
+services:
+  db:
+    image: postgres:16-alpine
+    environment: {POSTGRES_USER: shingle, POSTGRES_PASSWORD: shingle, POSTGRES_DB: shingle}
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck: {test: ["CMD-SHELL", "pg_isready -U shingle"], interval: 2s, timeout: 3s, retries: 30}
+  sandbox-image:
+    build: {context: ., dockerfile: docker/sandbox.Dockerfile}
+    image: shingle-sandbox:latest
+    command: ["true"]
+  demo:
+    build: .
+    image: shingle:latest
+    command: ["shingle", "demo"]
+    environment: *env
+    env_file: [{path: .env, required: false}]
+    volumes:
+      - ./var:/data
+      - ./site_build:/app/site_build
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      db: {condition: service_healthy}
+      sandbox-image: {condition: service_completed_successfully}
+  app:
+    image: shingle:latest
+    command: ["shingle", "serve", "--port", "8000"]
+    environment: *env
+    env_file: [{path: .env, required: false}]
+    ports: ["8000:8000"]
+    volumes: ["./var:/data"]
+    depends_on: {demo: {condition: service_completed_successfully}}
+    healthcheck: {test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://localhost:8000/healthz')"], interval: 5s, retries: 20}
+  site:
+    image: shingle:latest
+    command: ["python", "-m", "http.server", "8080", "-d", "/app/site_build"]
+    ports: ["8080:8080"]
+    volumes: ["./site_build:/app/site_build"]
+    depends_on: {demo: {condition: service_completed_successfully}}
+volumes:
+  pgdata:

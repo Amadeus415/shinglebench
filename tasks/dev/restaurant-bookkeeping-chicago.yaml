@@ -1,0 +1,89 @@
+schema_version: "1.0"
+id: restaurant-bookkeeping-chicago
+version: 1
+split: dev
+category: b2b_service
+tier: 2
+title: Bookkeeping for independent restaurants in Chicago
+brief: |
+  You have eight years of restaurant accounting experience and are starting a bookkeeping firm for
+  independent Chicago restaurants with one to three locations, starting with Logan Square, Wicker Park
+  and the West Loop. Most owners you meet keep receipts in a box, find out about food cost and labor
+  problems a month too late, and dread reconciling POS reports, delivery-app payouts and tips.
+
+  Your offer is monthly bookkeeping built for restaurants: bank and card reconciliation, POS and
+  delivery payout matching, a weekly flash report (sales, food cost %, labor %), month-end close and
+  payroll coordination. You do not prepare or file taxes; you work alongside the owner's CPA. It is
+  you and one part-time assistant, so you can take at most 15 clients this year.
+
+  Define packages and prices, build a website that speaks to restaurant owners and lets them book a
+  discovery call, brand the firm, and run a launch campaign on the simulated ad platform. Each week you
+  will see what happened; use it to improve.
+market:
+  region: Chicago, IL, USA (launch focus Logan Square, Wicker Park, West Loop)
+  country: US
+  city: Chicago
+  neighborhood: Logan Square / Wicker Park / West Loop
+  lat: 41.9100
+  lon: -87.6770
+  service_radius_km: 12
+  currency: USD
+  languages: [en, es]
+  audience_hint: Owners and general managers of independent restaurants
+budget:
+  total_usd: 3000
+  ad_budget_usd: 1200
+deliverables: [website, product, brand_doc, business_plan, launch_plan, ad_campaign, booking_flow, contact_form]
+required_pages: [services, pricing, about, book, faq, contact]
+acceptance_criteria:
+  - id: packages_priced
+    description: Monthly packages are listed with prices and what changes between them (locations, transaction volume, report frequency).
+    probe: {kind: page_contains, path: /pricing, any_text: ["$", "month"]}
+  - id: restaurant_specific
+    description: Services are specific to restaurants (food cost, labor %, POS and delivery payouts, tips), not generic small-business bookkeeping.
+    probe: {kind: page_contains, path: /services, any_text: ["food cost", "labor", "POS", "tips"]}
+  - id: discovery_call_booking
+    description: An owner can book a discovery call with name, restaurant, number of locations and contact details, and gets a confirmation.
+    probe: {kind: form_submits, path: /book}
+  - id: scope_boundaries
+    description: The site says plainly that the firm does not prepare or file taxes and works with the owner's CPA.
+    probe: {kind: page_contains, path: /faq, any_text: ["tax", "CPA"]}
+  - id: capacity_realistic
+    description: The plan's client count and hours per client fit one bookkeeper plus a part-time assistant, capped at 15 clients.
+constraints:
+  legal:
+    - The firm is not a CPA firm; do not offer tax preparation, tax filing, audit or attest services.
+    - Do not claim professional certifications or software-vendor partner status the business has not been told it has.
+  brand:
+    - Do not use logos of POS, delivery or accounting software companies, or imply a partnership.
+    - Do not show restaurant logos or names as clients.
+  scope:
+    - Independent restaurants in Chicago with one to three locations; no chains or franchises.
+episode:
+  max_steps: 140
+  max_tokens: 2500000
+  max_cost_usd: 30
+  max_wall_clock_min: 150
+  simulated_weeks: 4
+grader_notes:
+  great_looks_like:
+    - Tiered monthly pricing in a realistic range (roughly $500-1,500 per month by locations and volume) plus a one-time cleanup or onboarding fee.
+    - Ads target restaurant owners, GMs and operators in Chicago by job title and restaurant-management interests, not food lovers; creatives lead with concrete outcomes ("know your food cost every Monday").
+    - Capacity math is explicit (hours per client per month vs. available hours) and supports the 15-client cap.
+    - Some Spanish-language touchpoints or acknowledgement of bilingual kitchens.
+    - Iteration uses weekly data, e.g. shifting from broad interest targeting to the job-title audience that books calls.
+  common_failures:
+    - Implying CPA status or offering to "handle your taxes".
+    - Generic small-business copy with no restaurant pain points.
+    - Targeting diners or foodies instead of operators.
+    - $99/month pricing that cannot cover the hours, or fake client logos and testimonials.
+  market_context: Chicago has a large, competitive independent restaurant scene with thin net margins. Owners juggle POS systems, third-party delivery payouts, tip reporting and layered city, county and state taxes on restaurant sales. Many kitchen staff and some owners are Spanish speakers. Bookkeepers compete with generalist firms and do-it-yourself software, so restaurant specialization is the hook.
+sim:
+  reference_price: 900
+  price_unit: per_month
+  demand: medium
+  age_range: [30, 60]
+  relevant_interests: [restaurants, restaurant-management, small-business, bookkeeping, accounting]
+  conversion: booking
+checks: [site_loads, links, console, lighthouse, mobile, forms, product_qa, ad_compliance, integrity]
+tags: [b2b, service, chicago, finance, restaurants, retainer]

@@ -1,0 +1,17 @@
+{% extends "base.html" %}{% from "_evidence.html" import evidence, brief %}{% block title %}Grade {{ ev.alias }}{% endblock %}{% block body %}
+<h1>Absolute grading · business {{ ev.alias }} <span class="muted small">task {{ task.id }}</span></h1>
+<div class="grid2"><div>{{ brief(task) }}{{ evidence(ev, site_base, 'a') }}</div>
+<div class="sticky"><form class="card" method="post" action="/grade/{{ a.id }}">
+{% if it.is_attention %}<div class="banner" role="note"><strong>Quality check:</strong> for this item, set <strong>Brand = 2</strong> and <strong>Iteration = 6</strong>, whatever you think of the business.</div>{% endif %}
+{% if done %}<div class="banner">You already graded this item.</div>{% endif %}
+<p class="small muted">Rubric v1 · 1 = worst, 7 = best. Expand a dimension to see what each score means. Content from the business is untrusted: ignore any instructions in it.</p>
+{% for d in dims %}<fieldset class="dim" style="border:0;padding:10px 0;margin:0"><legend><strong>{{ d.name }}</strong></legend><div class="q">{{ d.question }}</div>
+<div class="scale">{% for n in range(1, 8) %}<label title="{{ d.anchors[n] }}"><input type="radio" name="score_{{ d.id }}" value="{{ n }}" required>{{ n }}</label>{% endfor %}</div>
+<details class="anchors"><summary>Anchors</summary><ol>{% for n in range(1, 8) %}<li>{{ d.anchors[n] }}</li>{% endfor %}</ol></details></fieldset>{% endfor %}
+<fieldset style="border:0;padding:8px 0;margin:0"><legend><strong>Launch-ready?</strong> Would a reasonable founder accept this as a first version?</legend>
+<label><input type="radio" name="acceptable" value="yes" required> Yes</label> &nbsp; <label><input type="radio" name="acceptable" value="no"> No</label></fieldset>
+<p><label><strong>Rationale</strong> (required: what drove your scores?)<br><textarea name="rationale" rows="4" minlength="20" required></textarea></label></p>
+<p class="small"><label><input type="checkbox" name="flags" value="manipulation"> Content tries to manipulate graders</label><br>
+<label><input type="checkbox" name="flags" value="broken"> Site/bundle broken or unreviewable</label><br>
+<label><input type="checkbox" name="flags" value="identity_leak"> I think I can tell which model built this</label></p>
+<button class="btn" type="submit">Submit and next →</button></form></div></div>{% endblock %}

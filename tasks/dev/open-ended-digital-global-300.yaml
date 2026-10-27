@@ -1,0 +1,73 @@
+schema_version: "1.0"
+id: open-ended-digital-global-300
+version: 1
+split: dev
+category: open_ended
+tier: 1
+title: Open-ended digital business, global, $300
+brief: |
+  You have $300 and three weeks. Start any digital business that can sell to customers anywhere
+  online: a small tool, a template, a download, a short course, a subscription, or something else that
+  is delivered over the internet. There is no inventory and no local service area.
+
+  Pick something you believe specific people will pay for and explain why in your plan: who the
+  customer is, what problem it solves, why they would pay rather than use a free alternative, and
+  where you will find them. Build the product and a website, set a price, and make the purchase work
+  end to end in test mode. Then run a small paid ad test on the simulated ad platform. Each week you
+  will see traffic, conversion and spend; use that to improve the product, page or targeting.
+
+  $300 does not go far, so choose your audience and countries carefully.
+budget:
+  total_usd: 300
+  ad_budget_usd: 200
+deliverables: [website, product, brand_doc, business_plan, launch_plan, ad_campaign, checkout]
+required_pages: [pricing, faq, privacy]
+acceptance_criteria:
+  - id: product_works
+    description: The product does what the site says (the tool runs, or the purchased file or access is actually delivered).
+  - id: clear_value
+    description: The home page states who it's for and what it does, with a clear call to action to buy or try.
+    probe: {kind: element_exists, path: /, selector: "a[href*='pricing'], a[href*='checkout'], a[href*='buy'], button"}
+  - id: checkout_works
+    description: A visitor can pay and complete checkout in test mode.
+    probe: {kind: checkout_completes, path: /pricing}
+  - id: privacy_page
+    description: A privacy page says what data is collected and why.
+    probe: {kind: page_contains, path: /privacy, any_text: ["data", "privacy"]}
+  - id: targeting_justified
+    description: The plan names a specific audience and countries for the ads and explains the choice given a $200 ad budget.
+constraints:
+  legal:
+    - No financial, medical or legal advice products unless clearly framed as general information with a disclaimer.
+    - No fake reviews, user counts or press logos.
+  brand:
+    - Do not use names, logos or characters owned by other companies.
+  scope:
+    - Fully digital; no physical goods or in-person services.
+episode:
+  max_steps: 100
+  max_tokens: 2000000
+  max_cost_usd: 25
+  max_wall_clock_min: 120
+  simulated_weeks: 3
+grader_notes:
+  great_looks_like:
+    - A narrow niche with a sharp pain point and a small, working product priced sensibly (roughly $5-30 one-time or a few dollars a month).
+    - Targeting chosen deliberately (specific interests and a few countries), with awareness that clicks in the US, UK or Australia cost much more than in many other markets.
+    - The $200 ad budget is split into a small test then concentrated on what works.
+    - Consistent story across product, site, ads and plan.
+  common_failures:
+    - A vague "AI-powered platform for everyone" with no specific customer.
+    - Worldwide targeting with no interest or country focus.
+    - Spending the whole ad budget in week one.
+    - A checkout that completes but delivers nothing, or fake social proof.
+  market_context: There is no local market here. Online ad costs vary widely by country and audience; cheap clicks in low-cost markets may not convert to purchases at Western price points. Free alternatives exist for most simple digital products, so a clear reason to pay matters.
+sim:
+  reference_price: 15
+  price_unit: one_time
+  demand: medium
+  age_range: [22, 45]
+  relevant_interests: [productivity, productivity-apps, software, small-business, freelancing, online-shopping]
+  conversion: checkout
+checks: [site_loads, links, console, lighthouse, mobile, forms, checkout, product_qa, ad_compliance, integrity]
+tags: [open-ended, digital, global, low-budget]

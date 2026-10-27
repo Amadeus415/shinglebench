@@ -1,0 +1,29 @@
+{% extends "base.html" %}{% from "_macros.html" import stamp, demo_banner, leader_table %}{% block title %}Shingle: can an AI start a real business?{% endblock %}{% block body %}
+<section class="hero">
+<div><h1>Give a model a brief and a budget. Judge the business it builds.</h1>
+<p class="lede">ShingleBench hands an AI model a real-world brief, such as mobile bike repair in San Francisco's Outer Sunset or planters for apartment renters. The model has to ship the product, the website, the brand, the ads and the pricing, then run the business for simulated weeks. Blind human graders and LLM judges decide whether it would get real customers.</p>
+<div class="actions"><a class="btn" href="/leaderboard.html">See the leaderboard</a><a class="btn quiet" href="/showcase.html">Browse what models built</a></div></div>
+{% if hero %}<figure class="specimen"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><div class="shot">
+<img src="{{ hero.shots.desktop[0].src }}" alt="Desktop home page of {{ hero.name }}, a business built by {{ hero.run.model }}">{% if hero.shots.mobile %}<img class="m" src="{{ hero.shots.mobile[0].src }}" alt="The same page on a phone">{% endif %}</div></div>
+<dl class="plate"><div class="wide"><dt>Business</dt><dd><a href="{{ hero.url }}">{{ hero.name }}</a></dd></div><div><dt>Built by</dt><dd>{{ hero.run.model }}</dd></div><div><dt>Score</dt><dd>{{ '%.1f'|format(hero.run.combined.overall) }} / 7</dd></div>
+<div class="wide"><dt>Brief</dt><dd>{{ hero.task.title }}</dd></div><div><dt>Steps</dt><dd>{{ hero.run.steps }}</dd></div><div><dt>Simulated revenue</dt><dd>${{ '%.0f'|format(hero.run.sim_revenue) }}</dd></div></dl>
+<figcaption>The strongest run in {{ res.title }}, frozen exactly as the model left it. <a href="{{ hero.url }}">Open the case file</a>.</figcaption></figure>{% endif %}
+</section>
+{{ demo_banner(res) }}
+<section class="band"><h2>Leaderboard</h2>{{ stamp(res, version) }}
+<p class="note">Higher is better on a 1–7 scale. Models whose intervals overlap the shaded band are statistically tied with the leader.</p>
+{{ ci_chart(ci_rows)|safe }}{{ leader_table(res) }}<p class="note"><a href="/leaderboard.html">Full leaderboard with dimensions, categories and costs</a> · <a href="/methodology.html#aggregation">How scores are computed</a></p></section>
+{% if hero %}<section class="band"><h2>What one run produces</h2>
+<p>A run gives one model, one brief and one random seed a sandbox with no internet, plus simulated ad, payment and supplier services. Nothing real is bought, sent or advertised. At the end we freeze everything it made.</p>
+<div class="artifacts">{% if hero.shots.mobile|length > 1 %}<figure><img loading="lazy" src="{{ hero.shots.mobile[1].src }}" alt="Second page on mobile"><figcaption>Every page, captured on desktop and phone</figcaption></figure>{% endif %}
+{% for a in hero.ads[:2] %}<figure><img loading="lazy" src="{{ a.src }}" alt="Ad creative: {{ a.creative.creative.headline if a.creative else '' }}"><figcaption>Ad creative and its targeting: {{ (a.creative.targeting.geo.locations + a.creative.targeting.geo.countries)|join(', ')|replace('neighborhood:US:san-francisco:', '')|replace('city:US:', '') if a.creative else '' }}</figcaption></figure>{% endfor %}
+<figure><div class="doc" style="height:220px;overflow:hidden">{{ hero.plan[:700] }}</div><figcaption>Business plan with unit economics, updated with what the model learned each week</figcaption></figure></div></section>{% endif %}
+<section class="band"><h2>How a business gets graded</h2><div class="three">
+<div><h3>Automated checks</h3><p>A browser crawls the frozen site. It completes test checkout, submits forms, audits mobile layout and accessibility, and runs a QA agent against the brief's acceptance criteria. It also flags fake reviews, invented credentials and attempts to manipulate graders.</p></div>
+<div><h3>Blind human graders</h3><p>Graders never see which model built a business. They score nine rubric dimensions with written anchors and compare businesses for the same brief side by side, with sides randomized. Gold items and attention checks keep the grading honest.</p></div>
+<div><h3>LLM judges, checked against humans</h3><p>Judges use the same rubric. Every pairwise comparison runs twice with positions swapped, and we publish judge–human agreement for each dimension, so you can see where judges can be trusted.</p></div></div>
+<p class="note">Simulated customers produce weekly results so the model has something to iterate on. That market is a secondary signal and is never part of the score. <a href="/methodology.html">Read the methodology</a>.</p></section>
+{% if failures %}<section class="band"><h2>How businesses fail</h2><p>Failures teach more than wins. A few from this round:</p><ul>
+{% for c in failures %}<li><a href="{{ c.url }}">{{ c.name }}</a> ({{ c.run.model }}, {{ c.task.title }}): {% if c.flags %}{{ c.flags[0].category.replace('_', ' ') }} (“{{ c.flags[0].match[:60] }}”){% endif %}{% if c.failing %}{{ '; ' if c.flags }}failed {{ c.failing|join(', ')|replace('_', ' ') }}{% endif %}.</li>{% endfor %}</ul></section>{% endif %}
+<section class="band"><h2>For labs and enterprises</h2><p>We run private pre-release evaluations and custom brief suites for your market, and we provide the grading data. <a href="/labs.html">See what we offer</a>.</p></section>
+{% endblock %}

@@ -1,0 +1,2760 @@
+[
+  {
+    "id": "sup-ceramics-planters-value",
+    "name": "Kilnworks Trading",
+    "family": "ceramics_planters",
+    "profile": "value",
+    "region": "Shenzhen area",
+    "ships_from": "CN",
+    "moq": 1000,
+    "lead_time_days": 45,
+    "freight_per_kg_usd": {
+      "US": 2.9,
+      "EU": 3.1,
+      "UK": 3.2,
+      "AU": 2.6,
+      "other": 3.6
+    },
+    "rating": 3.9,
+    "defect_rate_pct": 4.0,
+    "sample_cost_usd": 45,
+    "sample_days": 14,
+    "certifications": [],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Lowest unit cost; sea freight; quality varies by batch.",
+    "products": [
+      {
+        "sku": "sup-ceramics-planters-value-1",
+        "name": "Self-watering ceramic planter, 15 cm",
+        "spec": "15 cm dia x 14 cm h, inner reservoir 350 ml, cotton wick",
+        "materials": "stoneware",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 4.46
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 3.92
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 3.48
+          }
+        ],
+        "unit_weight_kg": 1.1,
+        "packaging_cost": 0.62,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-ceramics-planters-value-2",
+        "name": "Self-watering ceramic planter, 20 cm",
+        "spec": "20 cm dia x 18 cm h, inner reservoir 700 ml, cotton wick",
+        "materials": "stoneware",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 6.41
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 5.64
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 5.0
+          }
+        ],
+        "unit_weight_kg": 1.8,
+        "packaging_cost": 0.8,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-ceramics-planters-value-3",
+        "name": "Ceramic planter trio set",
+        "spec": "10/13/16 cm, drainage hole, bamboo saucers",
+        "materials": "stoneware, bamboo",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 8.28
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 7.29
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 6.46
+          }
+        ],
+        "unit_weight_kg": 2.4,
+        "packaging_cost": 0.95,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-ceramics-planters-mid",
+    "name": "Saigon Clay Co.",
+    "family": "ceramics_planters",
+    "profile": "mid",
+    "region": "Ho Chi Minh City area",
+    "ships_from": "VN",
+    "moq": 300,
+    "lead_time_days": 30,
+    "freight_per_kg_usd": {
+      "US": 3.6,
+      "EU": 3.7,
+      "UK": 3.8,
+      "AU": 3.0,
+      "other": 4.0
+    },
+    "rating": 4.4,
+    "defect_rate_pct": 2.0,
+    "sample_cost_usd": 30,
+    "sample_days": 10,
+    "certifications": [
+      "ISO 9001",
+      "Lead-free glaze"
+    ],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Balanced cost and quality; air or sea options.",
+    "products": [
+      {
+        "sku": "sup-ceramics-planters-mid-1",
+        "name": "Self-watering ceramic planter, 15 cm",
+        "spec": "15 cm dia x 14 cm h, inner reservoir 350 ml, cotton wick",
+        "materials": "stoneware",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 6.2
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 5.46
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 4.84
+          }
+        ],
+        "unit_weight_kg": 1.1,
+        "packaging_cost": 0.62,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-ceramics-planters-mid-2",
+        "name": "Self-watering ceramic planter, 20 cm",
+        "spec": "20 cm dia x 18 cm h, inner reservoir 700 ml, cotton wick",
+        "materials": "stoneware",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 8.9
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 7.83
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 6.94
+          }
+        ],
+        "unit_weight_kg": 1.8,
+        "packaging_cost": 0.8,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-ceramics-planters-mid-3",
+        "name": "Ceramic planter trio set",
+        "spec": "10/13/16 cm, drainage hole, bamboo saucers",
+        "materials": "stoneware, bamboo",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 11.5
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 10.12
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 8.97
+          }
+        ],
+        "unit_weight_kg": 2.4,
+        "packaging_cost": 0.95,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-ceramics-planters-craft",
+    "name": "Hearth & Glaze Studio",
+    "family": "ceramics_planters",
+    "profile": "craft",
+    "region": "Domestic workshop",
+    "ships_from": "LOCAL",
+    "moq": 50,
+    "lead_time_days": 14,
+    "freight_per_kg_usd": {
+      "US": 1.2,
+      "EU": 1.2,
+      "UK": 1.2,
+      "AU": 1.2,
+      "other": 2.5
+    },
+    "rating": 4.8,
+    "defect_rate_pct": 0.8,
+    "sample_cost_usd": 20,
+    "sample_days": 5,
+    "certifications": [],
+    "payment_terms": "100% on order",
+    "notes": "Small-batch, ships from the launch country; highest unit cost.",
+    "products": [
+      {
+        "sku": "sup-ceramics-planters-craft-1",
+        "name": "Self-watering ceramic planter, 15 cm",
+        "spec": "15 cm dia x 14 cm h, inner reservoir 350 ml, cotton wick",
+        "materials": "stoneware",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 11.47
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 10.09
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 8.95
+          }
+        ],
+        "unit_weight_kg": 1.1,
+        "packaging_cost": 0.62,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-ceramics-planters-craft-2",
+        "name": "Self-watering ceramic planter, 20 cm",
+        "spec": "20 cm dia x 18 cm h, inner reservoir 700 ml, cotton wick",
+        "materials": "stoneware",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 16.46
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 14.48
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 12.84
+          }
+        ],
+        "unit_weight_kg": 1.8,
+        "packaging_cost": 0.8,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-ceramics-planters-craft-3",
+        "name": "Ceramic planter trio set",
+        "spec": "10/13/16 cm, drainage hole, bamboo saucers",
+        "materials": "stoneware, bamboo",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 21.28
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 18.73
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 16.6
+          }
+        ],
+        "unit_weight_kg": 2.4,
+        "packaging_cost": 0.95,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-candles-value",
+    "name": "Brightwick Manufacturing",
+    "family": "candles",
+    "profile": "value",
+    "region": "Shenzhen area",
+    "ships_from": "CN",
+    "moq": 1000,
+    "lead_time_days": 45,
+    "freight_per_kg_usd": {
+      "US": 2.9,
+      "EU": 3.1,
+      "UK": 3.2,
+      "AU": 2.6,
+      "other": 3.6
+    },
+    "rating": 3.9,
+    "defect_rate_pct": 4.0,
+    "sample_cost_usd": 45,
+    "sample_days": 14,
+    "certifications": [],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Lowest unit cost; sea freight; quality varies by batch.",
+    "products": [
+      {
+        "sku": "sup-candles-value-1",
+        "name": "Soy candle, 8 oz tin",
+        "spec": "8 oz soy wax, cotton wick, 40 h burn, custom label",
+        "materials": "soy wax, tin",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 1.73
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.52
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 1.35
+          }
+        ],
+        "unit_weight_kg": 0.32,
+        "packaging_cost": 0.43,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-candles-value-2",
+        "name": "Soy candle, 12 oz glass",
+        "spec": "12 oz soy-coconut wax, wood wick, 60 h burn",
+        "materials": "soy-coconut wax, glass",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 2.95
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 2.6
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 2.3
+          }
+        ],
+        "unit_weight_kg": 0.65,
+        "packaging_cost": 0.51,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-candles-value-3",
+        "name": "Wax melts, 6-pack",
+        "spec": "6 cubes, 2.5 oz total",
+        "materials": "soy wax",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 0.94
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 0.83
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 0.73
+          }
+        ],
+        "unit_weight_kg": 0.1,
+        "packaging_cost": 0.38,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-candles-mid",
+    "name": "Mekong Candle Works",
+    "family": "candles",
+    "profile": "mid",
+    "region": "Ho Chi Minh City area",
+    "ships_from": "VN",
+    "moq": 300,
+    "lead_time_days": 30,
+    "freight_per_kg_usd": {
+      "US": 3.6,
+      "EU": 3.7,
+      "UK": 3.8,
+      "AU": 3.0,
+      "other": 4.0
+    },
+    "rating": 4.4,
+    "defect_rate_pct": 2.0,
+    "sample_cost_usd": 30,
+    "sample_days": 10,
+    "certifications": [
+      "ISO 9001",
+      "Phthalate-free fragrance oils"
+    ],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Balanced cost and quality; air or sea options.",
+    "products": [
+      {
+        "sku": "sup-candles-mid-1",
+        "name": "Soy candle, 8 oz tin",
+        "spec": "8 oz soy wax, cotton wick, 40 h burn, custom label",
+        "materials": "soy wax, tin",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 2.4
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 2.11
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.87
+          }
+        ],
+        "unit_weight_kg": 0.32,
+        "packaging_cost": 0.43,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-candles-mid-2",
+        "name": "Soy candle, 12 oz glass",
+        "spec": "12 oz soy-coconut wax, wood wick, 60 h burn",
+        "materials": "soy-coconut wax, glass",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 4.1
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 3.61
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 3.2
+          }
+        ],
+        "unit_weight_kg": 0.65,
+        "packaging_cost": 0.51,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-candles-mid-3",
+        "name": "Wax melts, 6-pack",
+        "spec": "6 cubes, 2.5 oz total",
+        "materials": "soy wax",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 1.3
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 1.14
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.01
+          }
+        ],
+        "unit_weight_kg": 0.1,
+        "packaging_cost": 0.38,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-candles-craft",
+    "name": "Little Flame Pour House",
+    "family": "candles",
+    "profile": "craft",
+    "region": "Domestic workshop",
+    "ships_from": "LOCAL",
+    "moq": 50,
+    "lead_time_days": 14,
+    "freight_per_kg_usd": {
+      "US": 1.2,
+      "EU": 1.2,
+      "UK": 1.2,
+      "AU": 1.2,
+      "other": 2.5
+    },
+    "rating": 4.8,
+    "defect_rate_pct": 0.8,
+    "sample_cost_usd": 20,
+    "sample_days": 5,
+    "certifications": [],
+    "payment_terms": "100% on order",
+    "notes": "Small-batch, ships from the launch country; highest unit cost.",
+    "products": [
+      {
+        "sku": "sup-candles-craft-1",
+        "name": "Soy candle, 8 oz tin",
+        "spec": "8 oz soy wax, cotton wick, 40 h burn, custom label",
+        "materials": "soy wax, tin",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 4.44
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 3.91
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 3.46
+          }
+        ],
+        "unit_weight_kg": 0.32,
+        "packaging_cost": 0.43,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-candles-craft-2",
+        "name": "Soy candle, 12 oz glass",
+        "spec": "12 oz soy-coconut wax, wood wick, 60 h burn",
+        "materials": "soy-coconut wax, glass",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 7.58
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 6.67
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 5.91
+          }
+        ],
+        "unit_weight_kg": 0.65,
+        "packaging_cost": 0.51,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-candles-craft-3",
+        "name": "Wax melts, 6-pack",
+        "spec": "6 cubes, 2.5 oz total",
+        "materials": "soy wax",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 2.41
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 2.12
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 1.88
+          }
+        ],
+        "unit_weight_kg": 0.1,
+        "packaging_cost": 0.38,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-apparel-basics-value",
+    "name": "Pearl River Garments",
+    "family": "apparel_basics",
+    "profile": "value",
+    "region": "Shenzhen area",
+    "ships_from": "CN",
+    "moq": 1000,
+    "lead_time_days": 45,
+    "freight_per_kg_usd": {
+      "US": 2.9,
+      "EU": 3.1,
+      "UK": 3.2,
+      "AU": 2.6,
+      "other": 3.6
+    },
+    "rating": 3.9,
+    "defect_rate_pct": 4.0,
+    "sample_cost_usd": 45,
+    "sample_days": 14,
+    "certifications": [],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Lowest unit cost; sea freight; quality varies by batch.",
+    "products": [
+      {
+        "sku": "sup-apparel-basics-value-1",
+        "name": "Heavyweight cotton tee",
+        "spec": "220 gsm, sizes XS-3XL, screen print up to 2 colors",
+        "materials": "100% cotton",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 4.18
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 3.68
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 3.26
+          }
+        ],
+        "unit_weight_kg": 0.25,
+        "packaging_cost": 0.41,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-apparel-basics-value-2",
+        "name": "Fleece hoodie",
+        "spec": "320 gsm, sizes S-3XL, embroidery 1 location",
+        "materials": "80% cotton 20% polyester",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 10.44
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 9.19
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 8.14
+          }
+        ],
+        "unit_weight_kg": 0.65,
+        "packaging_cost": 0.51,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-apparel-basics-mid",
+    "name": "Lotus Textile Group",
+    "family": "apparel_basics",
+    "profile": "mid",
+    "region": "Ho Chi Minh City area",
+    "ships_from": "VN",
+    "moq": 300,
+    "lead_time_days": 30,
+    "freight_per_kg_usd": {
+      "US": 3.6,
+      "EU": 3.7,
+      "UK": 3.8,
+      "AU": 3.0,
+      "other": 4.0
+    },
+    "rating": 4.4,
+    "defect_rate_pct": 2.0,
+    "sample_cost_usd": 30,
+    "sample_days": 10,
+    "certifications": [
+      "ISO 9001",
+      "OEKO-TEX Standard 100"
+    ],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Balanced cost and quality; air or sea options.",
+    "products": [
+      {
+        "sku": "sup-apparel-basics-mid-1",
+        "name": "Heavyweight cotton tee",
+        "spec": "220 gsm, sizes XS-3XL, screen print up to 2 colors",
+        "materials": "100% cotton",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 5.8
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 5.1
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 4.52
+          }
+        ],
+        "unit_weight_kg": 0.25,
+        "packaging_cost": 0.41,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-apparel-basics-mid-2",
+        "name": "Fleece hoodie",
+        "spec": "320 gsm, sizes S-3XL, embroidery 1 location",
+        "materials": "80% cotton 20% polyester",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 14.5
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 12.76
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 11.31
+          }
+        ],
+        "unit_weight_kg": 0.65,
+        "packaging_cost": 0.51,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-apparel-basics-craft",
+    "name": "Cutline Sewing Collective",
+    "family": "apparel_basics",
+    "profile": "craft",
+    "region": "Domestic workshop",
+    "ships_from": "LOCAL",
+    "moq": 50,
+    "lead_time_days": 14,
+    "freight_per_kg_usd": {
+      "US": 1.2,
+      "EU": 1.2,
+      "UK": 1.2,
+      "AU": 1.2,
+      "other": 2.5
+    },
+    "rating": 4.8,
+    "defect_rate_pct": 0.8,
+    "sample_cost_usd": 20,
+    "sample_days": 5,
+    "certifications": [],
+    "payment_terms": "100% on order",
+    "notes": "Small-batch, ships from the launch country; highest unit cost.",
+    "products": [
+      {
+        "sku": "sup-apparel-basics-craft-1",
+        "name": "Heavyweight cotton tee",
+        "spec": "220 gsm, sizes XS-3XL, screen print up to 2 colors",
+        "materials": "100% cotton",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 10.73
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 9.44
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 8.37
+          }
+        ],
+        "unit_weight_kg": 0.25,
+        "packaging_cost": 0.41,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-apparel-basics-craft-2",
+        "name": "Fleece hoodie",
+        "spec": "320 gsm, sizes S-3XL, embroidery 1 location",
+        "materials": "80% cotton 20% polyester",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 26.83
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 23.61
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 20.93
+          }
+        ],
+        "unit_weight_kg": 0.65,
+        "packaging_cost": 0.51,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-tote-bags-value",
+    "name": "Canton Canvas Supply",
+    "family": "tote_bags",
+    "profile": "value",
+    "region": "Shenzhen area",
+    "ships_from": "CN",
+    "moq": 1000,
+    "lead_time_days": 45,
+    "freight_per_kg_usd": {
+      "US": 2.9,
+      "EU": 3.1,
+      "UK": 3.2,
+      "AU": 2.6,
+      "other": 3.6
+    },
+    "rating": 3.9,
+    "defect_rate_pct": 4.0,
+    "sample_cost_usd": 45,
+    "sample_days": 14,
+    "certifications": [],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Lowest unit cost; sea freight; quality varies by batch.",
+    "products": [
+      {
+        "sku": "sup-tote-bags-value-1",
+        "name": "Canvas tote, 12 oz",
+        "spec": "38 x 42 cm, 60 cm handles, 1-color print",
+        "materials": "cotton canvas",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 1.37
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.21
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 1.07
+          }
+        ],
+        "unit_weight_kg": 0.2,
+        "packaging_cost": 0.4,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-tote-bags-value-2",
+        "name": "Heavy canvas tote with gusset",
+        "spec": "40 x 36 x 12 cm, inner pocket, 2-color print",
+        "materials": "cotton canvas",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 3.31
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 2.91
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 2.58
+          }
+        ],
+        "unit_weight_kg": 0.38,
+        "packaging_cost": 0.44,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-tote-bags-mid",
+    "name": "Delta Bag Makers",
+    "family": "tote_bags",
+    "profile": "mid",
+    "region": "Ho Chi Minh City area",
+    "ships_from": "VN",
+    "moq": 300,
+    "lead_time_days": 30,
+    "freight_per_kg_usd": {
+      "US": 3.6,
+      "EU": 3.7,
+      "UK": 3.8,
+      "AU": 3.0,
+      "other": 4.0
+    },
+    "rating": 4.4,
+    "defect_rate_pct": 2.0,
+    "sample_cost_usd": 30,
+    "sample_days": 10,
+    "certifications": [
+      "ISO 9001"
+    ],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Balanced cost and quality; air or sea options.",
+    "products": [
+      {
+        "sku": "sup-tote-bags-mid-1",
+        "name": "Canvas tote, 12 oz",
+        "spec": "38 x 42 cm, 60 cm handles, 1-color print",
+        "materials": "cotton canvas",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 1.9
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 1.67
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.48
+          }
+        ],
+        "unit_weight_kg": 0.2,
+        "packaging_cost": 0.4,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-tote-bags-mid-2",
+        "name": "Heavy canvas tote with gusset",
+        "spec": "40 x 36 x 12 cm, inner pocket, 2-color print",
+        "materials": "cotton canvas",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 4.6
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 4.05
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 3.59
+          }
+        ],
+        "unit_weight_kg": 0.38,
+        "packaging_cost": 0.44,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-tote-bags-craft",
+    "name": "Fieldstitch Bags",
+    "family": "tote_bags",
+    "profile": "craft",
+    "region": "Domestic workshop",
+    "ships_from": "LOCAL",
+    "moq": 50,
+    "lead_time_days": 14,
+    "freight_per_kg_usd": {
+      "US": 1.2,
+      "EU": 1.2,
+      "UK": 1.2,
+      "AU": 1.2,
+      "other": 2.5
+    },
+    "rating": 4.8,
+    "defect_rate_pct": 0.8,
+    "sample_cost_usd": 20,
+    "sample_days": 5,
+    "certifications": [
+      "GOTS organic cotton"
+    ],
+    "payment_terms": "100% on order",
+    "notes": "Small-batch, ships from the launch country; highest unit cost.",
+    "products": [
+      {
+        "sku": "sup-tote-bags-craft-1",
+        "name": "Canvas tote, 12 oz",
+        "spec": "38 x 42 cm, 60 cm handles, 1-color print",
+        "materials": "cotton canvas",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 3.52
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 3.1
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 2.75
+          }
+        ],
+        "unit_weight_kg": 0.2,
+        "packaging_cost": 0.4,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-tote-bags-craft-2",
+        "name": "Heavy canvas tote with gusset",
+        "spec": "40 x 36 x 12 cm, inner pocket, 2-color print",
+        "materials": "cotton canvas",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 8.51
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 7.49
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 6.64
+          }
+        ],
+        "unit_weight_kg": 0.38,
+        "packaging_cost": 0.44,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-coffee-beans-value",
+    "name": "Rift Valley Green Exports",
+    "family": "coffee_beans",
+    "profile": "value",
+    "region": "Shenzhen area",
+    "ships_from": "CN",
+    "moq": 1000,
+    "lead_time_days": 45,
+    "freight_per_kg_usd": {
+      "US": 2.9,
+      "EU": 3.1,
+      "UK": 3.2,
+      "AU": 2.6,
+      "other": 3.6
+    },
+    "rating": 3.9,
+    "defect_rate_pct": 4.0,
+    "sample_cost_usd": 45,
+    "sample_days": 14,
+    "certifications": [
+      "Rainforest Alliance (farm level)"
+    ],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Lowest unit cost; sea freight; quality varies by batch.",
+    "products": [
+      {
+        "sku": "sup-coffee-beans-value-1",
+        "name": "Single-origin roasted beans, 250 g",
+        "spec": "Kenya AA, roasted to order, valve bag",
+        "materials": "arabica coffee",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 3.46
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 3.04
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 2.7
+          }
+        ],
+        "unit_weight_kg": 0.28,
+        "packaging_cost": 0.42,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-coffee-beans-value-2",
+        "name": "House blend roasted beans, 1 kg",
+        "spec": "Medium roast blend, valve bag",
+        "materials": "arabica coffee",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 9.72
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 8.55
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 7.58
+          }
+        ],
+        "unit_weight_kg": 1.05,
+        "packaging_cost": 0.61,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-coffee-beans-value-3",
+        "name": "Drip bags, 10-pack",
+        "spec": "10 x 12 g single-serve drip bags",
+        "materials": "arabica coffee",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 2.81
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 2.47
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 2.19
+          }
+        ],
+        "unit_weight_kg": 0.18,
+        "packaging_cost": 0.39,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-coffee-beans-mid",
+    "name": "Highland Roast Partners",
+    "family": "coffee_beans",
+    "profile": "mid",
+    "region": "Ho Chi Minh City area",
+    "ships_from": "VN",
+    "moq": 300,
+    "lead_time_days": 30,
+    "freight_per_kg_usd": {
+      "US": 3.6,
+      "EU": 3.7,
+      "UK": 3.8,
+      "AU": 3.0,
+      "other": 4.0
+    },
+    "rating": 4.4,
+    "defect_rate_pct": 2.0,
+    "sample_cost_usd": 30,
+    "sample_days": 10,
+    "certifications": [
+      "ISO 9001"
+    ],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Balanced cost and quality; air or sea options.",
+    "products": [
+      {
+        "sku": "sup-coffee-beans-mid-1",
+        "name": "Single-origin roasted beans, 250 g",
+        "spec": "Kenya AA, roasted to order, valve bag",
+        "materials": "arabica coffee",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 4.8
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 4.22
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 3.74
+          }
+        ],
+        "unit_weight_kg": 0.28,
+        "packaging_cost": 0.42,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-coffee-beans-mid-2",
+        "name": "House blend roasted beans, 1 kg",
+        "spec": "Medium roast blend, valve bag",
+        "materials": "arabica coffee",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 13.5
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 11.88
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 10.53
+          }
+        ],
+        "unit_weight_kg": 1.05,
+        "packaging_cost": 0.61,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-coffee-beans-mid-3",
+        "name": "Drip bags, 10-pack",
+        "spec": "10 x 12 g single-serve drip bags",
+        "materials": "arabica coffee",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 3.9
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 3.43
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 3.04
+          }
+        ],
+        "unit_weight_kg": 0.18,
+        "packaging_cost": 0.39,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-coffee-beans-craft",
+    "name": "Small Lot Roasting Co.",
+    "family": "coffee_beans",
+    "profile": "craft",
+    "region": "Domestic workshop",
+    "ships_from": "LOCAL",
+    "moq": 50,
+    "lead_time_days": 14,
+    "freight_per_kg_usd": {
+      "US": 1.2,
+      "EU": 1.2,
+      "UK": 1.2,
+      "AU": 1.2,
+      "other": 2.5
+    },
+    "rating": 4.8,
+    "defect_rate_pct": 0.8,
+    "sample_cost_usd": 20,
+    "sample_days": 5,
+    "certifications": [
+      "Organic (certified)"
+    ],
+    "payment_terms": "100% on order",
+    "notes": "Small-batch, ships from the launch country; highest unit cost.",
+    "products": [
+      {
+        "sku": "sup-coffee-beans-craft-1",
+        "name": "Single-origin roasted beans, 250 g",
+        "spec": "Kenya AA, roasted to order, valve bag",
+        "materials": "arabica coffee",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 8.88
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 7.81
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 6.93
+          }
+        ],
+        "unit_weight_kg": 0.28,
+        "packaging_cost": 0.42,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-coffee-beans-craft-2",
+        "name": "House blend roasted beans, 1 kg",
+        "spec": "Medium roast blend, valve bag",
+        "materials": "arabica coffee",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 24.98
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 21.98
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 19.48
+          }
+        ],
+        "unit_weight_kg": 1.05,
+        "packaging_cost": 0.61,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-coffee-beans-craft-3",
+        "name": "Drip bags, 10-pack",
+        "spec": "10 x 12 g single-serve drip bags",
+        "materials": "arabica coffee",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 7.21
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 6.34
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 5.62
+          }
+        ],
+        "unit_weight_kg": 0.18,
+        "packaging_cost": 0.39,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-soap-skincare-value",
+    "name": "Guangdong Personal Care OEM",
+    "family": "soap_skincare",
+    "profile": "value",
+    "region": "Shenzhen area",
+    "ships_from": "CN",
+    "moq": 1000,
+    "lead_time_days": 45,
+    "freight_per_kg_usd": {
+      "US": 2.9,
+      "EU": 3.1,
+      "UK": 3.2,
+      "AU": 2.6,
+      "other": 3.6
+    },
+    "rating": 3.9,
+    "defect_rate_pct": 4.0,
+    "sample_cost_usd": 45,
+    "sample_days": 14,
+    "certifications": [],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Lowest unit cost; sea freight; quality varies by batch.",
+    "products": [
+      {
+        "sku": "sup-soap-skincare-value-1",
+        "name": "Cold-process soap bar, 110 g",
+        "spec": "Olive/coconut base, essential-oil scent, paper wrap",
+        "materials": "saponified oils",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 1.22
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.07
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 0.95
+          }
+        ],
+        "unit_weight_kg": 0.13,
+        "packaging_cost": 0.38,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-soap-skincare-value-2",
+        "name": "Lip balm tube, 4.5 g",
+        "spec": "Beeswax base, custom label",
+        "materials": "beeswax, oils",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 0.43
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 0.38
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 0.34
+          }
+        ],
+        "unit_weight_kg": 0.02,
+        "packaging_cost": 0.35,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-soap-skincare-value-3",
+        "name": "Body balm tin, 60 g",
+        "spec": "Shea base, unscented or scented",
+        "materials": "shea butter, oils",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 1.66
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.46
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 1.29
+          }
+        ],
+        "unit_weight_kg": 0.1,
+        "packaging_cost": 0.38,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-soap-skincare-mid",
+    "name": "Lotus Botanicals Lab",
+    "family": "soap_skincare",
+    "profile": "mid",
+    "region": "Ho Chi Minh City area",
+    "ships_from": "VN",
+    "moq": 300,
+    "lead_time_days": 30,
+    "freight_per_kg_usd": {
+      "US": 3.6,
+      "EU": 3.7,
+      "UK": 3.8,
+      "AU": 3.0,
+      "other": 4.0
+    },
+    "rating": 4.4,
+    "defect_rate_pct": 2.0,
+    "sample_cost_usd": 30,
+    "sample_days": 10,
+    "certifications": [
+      "ISO 9001"
+    ],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Balanced cost and quality; air or sea options.",
+    "products": [
+      {
+        "sku": "sup-soap-skincare-mid-1",
+        "name": "Cold-process soap bar, 110 g",
+        "spec": "Olive/coconut base, essential-oil scent, paper wrap",
+        "materials": "saponified oils",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 1.7
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 1.5
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.33
+          }
+        ],
+        "unit_weight_kg": 0.13,
+        "packaging_cost": 0.38,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-soap-skincare-mid-2",
+        "name": "Lip balm tube, 4.5 g",
+        "spec": "Beeswax base, custom label",
+        "materials": "beeswax, oils",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 0.6
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 0.53
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 0.47
+          }
+        ],
+        "unit_weight_kg": 0.02,
+        "packaging_cost": 0.35,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-soap-skincare-mid-3",
+        "name": "Body balm tin, 60 g",
+        "spec": "Shea base, unscented or scented",
+        "materials": "shea butter, oils",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 2.3
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 2.02
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.79
+          }
+        ],
+        "unit_weight_kg": 0.1,
+        "packaging_cost": 0.38,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-soap-skincare-craft",
+    "name": "Saltmeadow Soapery",
+    "family": "soap_skincare",
+    "profile": "craft",
+    "region": "Domestic workshop",
+    "ships_from": "LOCAL",
+    "moq": 50,
+    "lead_time_days": 14,
+    "freight_per_kg_usd": {
+      "US": 1.2,
+      "EU": 1.2,
+      "UK": 1.2,
+      "AU": 1.2,
+      "other": 2.5
+    },
+    "rating": 4.8,
+    "defect_rate_pct": 0.8,
+    "sample_cost_usd": 20,
+    "sample_days": 5,
+    "certifications": [
+      "Cosmetic GMP"
+    ],
+    "payment_terms": "100% on order",
+    "notes": "Small-batch, ships from the launch country; highest unit cost.",
+    "products": [
+      {
+        "sku": "sup-soap-skincare-craft-1",
+        "name": "Cold-process soap bar, 110 g",
+        "spec": "Olive/coconut base, essential-oil scent, paper wrap",
+        "materials": "saponified oils",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 3.15
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 2.77
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 2.46
+          }
+        ],
+        "unit_weight_kg": 0.13,
+        "packaging_cost": 0.38,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-soap-skincare-craft-2",
+        "name": "Lip balm tube, 4.5 g",
+        "spec": "Beeswax base, custom label",
+        "materials": "beeswax, oils",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 1.11
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 0.98
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 0.87
+          }
+        ],
+        "unit_weight_kg": 0.02,
+        "packaging_cost": 0.35,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-soap-skincare-craft-3",
+        "name": "Body balm tin, 60 g",
+        "spec": "Shea base, unscented or scented",
+        "materials": "shea butter, oils",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 4.25
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 3.74
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 3.31
+          }
+        ],
+        "unit_weight_kg": 0.1,
+        "packaging_cost": 0.38,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-stationery-value",
+    "name": "Dongguan Paper Goods",
+    "family": "stationery",
+    "profile": "value",
+    "region": "Shenzhen area",
+    "ships_from": "CN",
+    "moq": 1000,
+    "lead_time_days": 45,
+    "freight_per_kg_usd": {
+      "US": 2.9,
+      "EU": 3.1,
+      "UK": 3.2,
+      "AU": 2.6,
+      "other": 3.6
+    },
+    "rating": 3.9,
+    "defect_rate_pct": 4.0,
+    "sample_cost_usd": 45,
+    "sample_days": 14,
+    "certifications": [],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Lowest unit cost; sea freight; quality varies by batch.",
+    "products": [
+      {
+        "sku": "sup-stationery-value-1",
+        "name": "A5 dot-grid notebook",
+        "spec": "160 pages 100 gsm, lay-flat binding, custom cover",
+        "materials": "paper, card",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 1.87
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.65
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 1.46
+          }
+        ],
+        "unit_weight_kg": 0.35,
+        "packaging_cost": 0.44,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-stationery-value-2",
+        "name": "Undated weekly planner",
+        "spec": "A5, 128 pages, ribbon marker, custom layout",
+        "materials": "paper, card",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 2.81
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 2.47
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 2.19
+          }
+        ],
+        "unit_weight_kg": 0.42,
+        "packaging_cost": 0.45,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-stationery-mid",
+    "name": "Hanoi Bindery",
+    "family": "stationery",
+    "profile": "mid",
+    "region": "Ho Chi Minh City area",
+    "ships_from": "VN",
+    "moq": 300,
+    "lead_time_days": 30,
+    "freight_per_kg_usd": {
+      "US": 3.6,
+      "EU": 3.7,
+      "UK": 3.8,
+      "AU": 3.0,
+      "other": 4.0
+    },
+    "rating": 4.4,
+    "defect_rate_pct": 2.0,
+    "sample_cost_usd": 30,
+    "sample_days": 10,
+    "certifications": [
+      "ISO 9001"
+    ],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Balanced cost and quality; air or sea options.",
+    "products": [
+      {
+        "sku": "sup-stationery-mid-1",
+        "name": "A5 dot-grid notebook",
+        "spec": "160 pages 100 gsm, lay-flat binding, custom cover",
+        "materials": "paper, card",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 2.6
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 2.29
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 2.03
+          }
+        ],
+        "unit_weight_kg": 0.35,
+        "packaging_cost": 0.44,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-stationery-mid-2",
+        "name": "Undated weekly planner",
+        "spec": "A5, 128 pages, ribbon marker, custom layout",
+        "materials": "paper, card",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 3.9
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 3.43
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 3.04
+          }
+        ],
+        "unit_weight_kg": 0.42,
+        "packaging_cost": 0.45,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-stationery-craft",
+    "name": "Quire & Thread Press",
+    "family": "stationery",
+    "profile": "craft",
+    "region": "Domestic workshop",
+    "ships_from": "LOCAL",
+    "moq": 50,
+    "lead_time_days": 14,
+    "freight_per_kg_usd": {
+      "US": 1.2,
+      "EU": 1.2,
+      "UK": 1.2,
+      "AU": 1.2,
+      "other": 2.5
+    },
+    "rating": 4.8,
+    "defect_rate_pct": 0.8,
+    "sample_cost_usd": 20,
+    "sample_days": 5,
+    "certifications": [],
+    "payment_terms": "100% on order",
+    "notes": "Small-batch, ships from the launch country; highest unit cost.",
+    "products": [
+      {
+        "sku": "sup-stationery-craft-1",
+        "name": "A5 dot-grid notebook",
+        "spec": "160 pages 100 gsm, lay-flat binding, custom cover",
+        "materials": "paper, card",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 4.81
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 4.23
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 3.75
+          }
+        ],
+        "unit_weight_kg": 0.35,
+        "packaging_cost": 0.44,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-stationery-craft-2",
+        "name": "Undated weekly planner",
+        "spec": "A5, 128 pages, ribbon marker, custom layout",
+        "materials": "paper, card",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 7.21
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 6.34
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 5.62
+          }
+        ],
+        "unit_weight_kg": 0.42,
+        "packaging_cost": 0.45,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-pet-accessories-value",
+    "name": "Pawline Industrial",
+    "family": "pet_accessories",
+    "profile": "value",
+    "region": "Shenzhen area",
+    "ships_from": "CN",
+    "moq": 1000,
+    "lead_time_days": 45,
+    "freight_per_kg_usd": {
+      "US": 2.9,
+      "EU": 3.1,
+      "UK": 3.2,
+      "AU": 2.6,
+      "other": 3.6
+    },
+    "rating": 3.9,
+    "defect_rate_pct": 4.0,
+    "sample_cost_usd": 45,
+    "sample_days": 14,
+    "certifications": [],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Lowest unit cost; sea freight; quality varies by batch.",
+    "products": [
+      {
+        "sku": "sup-pet-accessories-value-1",
+        "name": "Nylon dog collar",
+        "spec": "Sizes XS-L, quick-release buckle, custom color",
+        "materials": "nylon webbing",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 1.3
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.14
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 1.01
+          }
+        ],
+        "unit_weight_kg": 0.06,
+        "packaging_cost": 0.36,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-pet-accessories-value-2",
+        "name": "Matching dog leash, 1.5 m",
+        "spec": "Padded handle, custom color",
+        "materials": "nylon webbing",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 1.94
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.71
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 1.51
+          }
+        ],
+        "unit_weight_kg": 0.15,
+        "packaging_cost": 0.39,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-pet-accessories-value-3",
+        "name": "Ceramic pet bowl",
+        "spec": "16 cm, food-safe glaze",
+        "materials": "stoneware",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 2.45
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 2.16
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 1.91
+          }
+        ],
+        "unit_weight_kg": 0.7,
+        "packaging_cost": 0.52,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-pet-accessories-mid",
+    "name": "Mekong Pet Supply",
+    "family": "pet_accessories",
+    "profile": "mid",
+    "region": "Ho Chi Minh City area",
+    "ships_from": "VN",
+    "moq": 300,
+    "lead_time_days": 30,
+    "freight_per_kg_usd": {
+      "US": 3.6,
+      "EU": 3.7,
+      "UK": 3.8,
+      "AU": 3.0,
+      "other": 4.0
+    },
+    "rating": 4.4,
+    "defect_rate_pct": 2.0,
+    "sample_cost_usd": 30,
+    "sample_days": 10,
+    "certifications": [
+      "ISO 9001"
+    ],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Balanced cost and quality; air or sea options.",
+    "products": [
+      {
+        "sku": "sup-pet-accessories-mid-1",
+        "name": "Nylon dog collar",
+        "spec": "Sizes XS-L, quick-release buckle, custom color",
+        "materials": "nylon webbing",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 1.8
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 1.58
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.4
+          }
+        ],
+        "unit_weight_kg": 0.06,
+        "packaging_cost": 0.36,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-pet-accessories-mid-2",
+        "name": "Matching dog leash, 1.5 m",
+        "spec": "Padded handle, custom color",
+        "materials": "nylon webbing",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 2.7
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 2.38
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 2.11
+          }
+        ],
+        "unit_weight_kg": 0.15,
+        "packaging_cost": 0.39,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-pet-accessories-mid-3",
+        "name": "Ceramic pet bowl",
+        "spec": "16 cm, food-safe glaze",
+        "materials": "stoneware",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 3.4
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 2.99
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 2.65
+          }
+        ],
+        "unit_weight_kg": 0.7,
+        "packaging_cost": 0.52,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-pet-accessories-craft",
+    "name": "Good Leash Workshop",
+    "family": "pet_accessories",
+    "profile": "craft",
+    "region": "Domestic workshop",
+    "ships_from": "LOCAL",
+    "moq": 50,
+    "lead_time_days": 14,
+    "freight_per_kg_usd": {
+      "US": 1.2,
+      "EU": 1.2,
+      "UK": 1.2,
+      "AU": 1.2,
+      "other": 2.5
+    },
+    "rating": 4.8,
+    "defect_rate_pct": 0.8,
+    "sample_cost_usd": 20,
+    "sample_days": 5,
+    "certifications": [],
+    "payment_terms": "100% on order",
+    "notes": "Small-batch, ships from the launch country; highest unit cost.",
+    "products": [
+      {
+        "sku": "sup-pet-accessories-craft-1",
+        "name": "Nylon dog collar",
+        "spec": "Sizes XS-L, quick-release buckle, custom color",
+        "materials": "nylon webbing",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 3.33
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 2.93
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 2.6
+          }
+        ],
+        "unit_weight_kg": 0.06,
+        "packaging_cost": 0.36,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-pet-accessories-craft-2",
+        "name": "Matching dog leash, 1.5 m",
+        "spec": "Padded handle, custom color",
+        "materials": "nylon webbing",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 5.0
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 4.4
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 3.9
+          }
+        ],
+        "unit_weight_kg": 0.15,
+        "packaging_cost": 0.39,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-pet-accessories-craft-3",
+        "name": "Ceramic pet bowl",
+        "spec": "16 cm, food-safe glaze",
+        "materials": "stoneware",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 6.29
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 5.54
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 4.91
+          }
+        ],
+        "unit_weight_kg": 0.7,
+        "packaging_cost": 0.52,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-drinkware-value",
+    "name": "Yongkang Steelware",
+    "family": "drinkware",
+    "profile": "value",
+    "region": "Shenzhen area",
+    "ships_from": "CN",
+    "moq": 1000,
+    "lead_time_days": 45,
+    "freight_per_kg_usd": {
+      "US": 2.9,
+      "EU": 3.1,
+      "UK": 3.2,
+      "AU": 2.6,
+      "other": 3.6
+    },
+    "rating": 3.9,
+    "defect_rate_pct": 4.0,
+    "sample_cost_usd": 45,
+    "sample_days": 14,
+    "certifications": [],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Lowest unit cost; sea freight; quality varies by batch.",
+    "products": [
+      {
+        "sku": "sup-drinkware-value-1",
+        "name": "Insulated steel bottle, 600 ml",
+        "spec": "Double-wall, powder coat, laser logo",
+        "materials": "stainless steel",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 3.74
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 3.29
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 2.92
+          }
+        ],
+        "unit_weight_kg": 0.38,
+        "packaging_cost": 0.44,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-drinkware-value-2",
+        "name": "Ceramic mug, 350 ml",
+        "spec": "Custom glaze color, dishwasher safe",
+        "materials": "stoneware",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 1.51
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.33
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 1.18
+          }
+        ],
+        "unit_weight_kg": 0.36,
+        "packaging_cost": 0.44,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-drinkware-mid",
+    "name": "Bien Hoa Ceramics",
+    "family": "drinkware",
+    "profile": "mid",
+    "region": "Ho Chi Minh City area",
+    "ships_from": "VN",
+    "moq": 300,
+    "lead_time_days": 30,
+    "freight_per_kg_usd": {
+      "US": 3.6,
+      "EU": 3.7,
+      "UK": 3.8,
+      "AU": 3.0,
+      "other": 4.0
+    },
+    "rating": 4.4,
+    "defect_rate_pct": 2.0,
+    "sample_cost_usd": 30,
+    "sample_days": 10,
+    "certifications": [
+      "ISO 9001"
+    ],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Balanced cost and quality; air or sea options.",
+    "products": [
+      {
+        "sku": "sup-drinkware-mid-1",
+        "name": "Insulated steel bottle, 600 ml",
+        "spec": "Double-wall, powder coat, laser logo",
+        "materials": "stainless steel",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 5.2
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 4.58
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 4.06
+          }
+        ],
+        "unit_weight_kg": 0.38,
+        "packaging_cost": 0.44,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-drinkware-mid-2",
+        "name": "Ceramic mug, 350 ml",
+        "spec": "Custom glaze color, dishwasher safe",
+        "materials": "stoneware",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 2.1
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 1.85
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.64
+          }
+        ],
+        "unit_weight_kg": 0.36,
+        "packaging_cost": 0.44,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-drinkware-craft",
+    "name": "Kiln & Keel Mugs",
+    "family": "drinkware",
+    "profile": "craft",
+    "region": "Domestic workshop",
+    "ships_from": "LOCAL",
+    "moq": 50,
+    "lead_time_days": 14,
+    "freight_per_kg_usd": {
+      "US": 1.2,
+      "EU": 1.2,
+      "UK": 1.2,
+      "AU": 1.2,
+      "other": 2.5
+    },
+    "rating": 4.8,
+    "defect_rate_pct": 0.8,
+    "sample_cost_usd": 20,
+    "sample_days": 5,
+    "certifications": [],
+    "payment_terms": "100% on order",
+    "notes": "Small-batch, ships from the launch country; highest unit cost.",
+    "products": [
+      {
+        "sku": "sup-drinkware-craft-1",
+        "name": "Insulated steel bottle, 600 ml",
+        "spec": "Double-wall, powder coat, laser logo",
+        "materials": "stainless steel",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 9.62
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 8.47
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 7.5
+          }
+        ],
+        "unit_weight_kg": 0.38,
+        "packaging_cost": 0.44,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-drinkware-craft-2",
+        "name": "Ceramic mug, 350 ml",
+        "spec": "Custom glaze color, dishwasher safe",
+        "materials": "stoneware",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 3.89
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 3.42
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 3.03
+          }
+        ],
+        "unit_weight_kg": 0.36,
+        "packaging_cost": 0.44,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-kitchen-textiles-value",
+    "name": "Ningbo Home Textiles",
+    "family": "kitchen_textiles",
+    "profile": "value",
+    "region": "Shenzhen area",
+    "ships_from": "CN",
+    "moq": 1000,
+    "lead_time_days": 45,
+    "freight_per_kg_usd": {
+      "US": 2.9,
+      "EU": 3.1,
+      "UK": 3.2,
+      "AU": 2.6,
+      "other": 3.6
+    },
+    "rating": 3.9,
+    "defect_rate_pct": 4.0,
+    "sample_cost_usd": 45,
+    "sample_days": 14,
+    "certifications": [],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Lowest unit cost; sea freight; quality varies by batch.",
+    "products": [
+      {
+        "sku": "sup-kitchen-textiles-value-1",
+        "name": "Cotton canvas apron",
+        "spec": "Adjustable neck, 2 pockets, 1-color print",
+        "materials": "cotton canvas",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 3.02
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 2.66
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 2.36
+          }
+        ],
+        "unit_weight_kg": 0.3,
+        "packaging_cost": 0.42,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-kitchen-textiles-value-2",
+        "name": "Linen-blend tea towel, 2-pack",
+        "spec": "50 x 70 cm, custom print",
+        "materials": "linen-cotton",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 2.02
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 1.78
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 1.58
+          }
+        ],
+        "unit_weight_kg": 0.18,
+        "packaging_cost": 0.39,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-kitchen-textiles-mid",
+    "name": "Saigon Linen House",
+    "family": "kitchen_textiles",
+    "profile": "mid",
+    "region": "Ho Chi Minh City area",
+    "ships_from": "VN",
+    "moq": 300,
+    "lead_time_days": 30,
+    "freight_per_kg_usd": {
+      "US": 3.6,
+      "EU": 3.7,
+      "UK": 3.8,
+      "AU": 3.0,
+      "other": 4.0
+    },
+    "rating": 4.4,
+    "defect_rate_pct": 2.0,
+    "sample_cost_usd": 30,
+    "sample_days": 10,
+    "certifications": [
+      "ISO 9001"
+    ],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Balanced cost and quality; air or sea options.",
+    "products": [
+      {
+        "sku": "sup-kitchen-textiles-mid-1",
+        "name": "Cotton canvas apron",
+        "spec": "Adjustable neck, 2 pockets, 1-color print",
+        "materials": "cotton canvas",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 4.2
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 3.7
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 3.28
+          }
+        ],
+        "unit_weight_kg": 0.3,
+        "packaging_cost": 0.42,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-kitchen-textiles-mid-2",
+        "name": "Linen-blend tea towel, 2-pack",
+        "spec": "50 x 70 cm, custom print",
+        "materials": "linen-cotton",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 2.8
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 2.46
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 2.18
+          }
+        ],
+        "unit_weight_kg": 0.18,
+        "packaging_cost": 0.39,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-kitchen-textiles-craft",
+    "name": "Apron Row Studio",
+    "family": "kitchen_textiles",
+    "profile": "craft",
+    "region": "Domestic workshop",
+    "ships_from": "LOCAL",
+    "moq": 50,
+    "lead_time_days": 14,
+    "freight_per_kg_usd": {
+      "US": 1.2,
+      "EU": 1.2,
+      "UK": 1.2,
+      "AU": 1.2,
+      "other": 2.5
+    },
+    "rating": 4.8,
+    "defect_rate_pct": 0.8,
+    "sample_cost_usd": 20,
+    "sample_days": 5,
+    "certifications": [],
+    "payment_terms": "100% on order",
+    "notes": "Small-batch, ships from the launch country; highest unit cost.",
+    "products": [
+      {
+        "sku": "sup-kitchen-textiles-craft-1",
+        "name": "Cotton canvas apron",
+        "spec": "Adjustable neck, 2 pockets, 1-color print",
+        "materials": "cotton canvas",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 7.77
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 6.84
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 6.06
+          }
+        ],
+        "unit_weight_kg": 0.3,
+        "packaging_cost": 0.42,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-kitchen-textiles-craft-2",
+        "name": "Linen-blend tea towel, 2-pack",
+        "spec": "50 x 70 cm, custom print",
+        "materials": "linen-cotton",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 5.18
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 4.56
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 4.04
+          }
+        ],
+        "unit_weight_kg": 0.18,
+        "packaging_cost": 0.39,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-wooden-toys-value",
+    "name": "Zhejiang Wood Toy Factory",
+    "family": "wooden_toys",
+    "profile": "value",
+    "region": "Shenzhen area",
+    "ships_from": "CN",
+    "moq": 1000,
+    "lead_time_days": 45,
+    "freight_per_kg_usd": {
+      "US": 2.9,
+      "EU": 3.1,
+      "UK": 3.2,
+      "AU": 2.6,
+      "other": 3.6
+    },
+    "rating": 3.9,
+    "defect_rate_pct": 4.0,
+    "sample_cost_usd": 45,
+    "sample_days": 14,
+    "certifications": [
+      "EN 71 tested"
+    ],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Lowest unit cost; sea freight; quality varies by batch.",
+    "products": [
+      {
+        "sku": "sup-wooden-toys-value-1",
+        "name": "Wooden stacking rainbow",
+        "spec": "7 arcs, water-based paint, 28 cm",
+        "materials": "beech wood",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 5.33
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 4.69
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 4.16
+          }
+        ],
+        "unit_weight_kg": 0.9,
+        "packaging_cost": 0.57,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-wooden-toys-value-2",
+        "name": "Wooden pull-along animal",
+        "spec": "Hand-finished, 18 cm, cotton cord",
+        "materials": "beech wood",
+        "price_breaks": [
+          {
+            "min_qty": 1000,
+            "unit_cost": 3.67
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 3.23
+          },
+          {
+            "min_qty": 10000,
+            "unit_cost": 2.86
+          }
+        ],
+        "unit_weight_kg": 0.4,
+        "packaging_cost": 0.45,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-wooden-toys-mid",
+    "name": "Binh Duong Timber Crafts",
+    "family": "wooden_toys",
+    "profile": "mid",
+    "region": "Ho Chi Minh City area",
+    "ships_from": "VN",
+    "moq": 300,
+    "lead_time_days": 30,
+    "freight_per_kg_usd": {
+      "US": 3.6,
+      "EU": 3.7,
+      "UK": 3.8,
+      "AU": 3.0,
+      "other": 4.0
+    },
+    "rating": 4.4,
+    "defect_rate_pct": 2.0,
+    "sample_cost_usd": 30,
+    "sample_days": 10,
+    "certifications": [
+      "ISO 9001",
+      "EN 71 tested",
+      "ASTM F963 tested"
+    ],
+    "payment_terms": "50% deposit, 50% before shipment",
+    "notes": "Balanced cost and quality; air or sea options.",
+    "products": [
+      {
+        "sku": "sup-wooden-toys-mid-1",
+        "name": "Wooden stacking rainbow",
+        "spec": "7 arcs, water-based paint, 28 cm",
+        "materials": "beech wood",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 7.4
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 6.51
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 5.77
+          }
+        ],
+        "unit_weight_kg": 0.9,
+        "packaging_cost": 0.57,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-wooden-toys-mid-2",
+        "name": "Wooden pull-along animal",
+        "spec": "Hand-finished, 18 cm, cotton cord",
+        "materials": "beech wood",
+        "price_breaks": [
+          {
+            "min_qty": 300,
+            "unit_cost": 5.1
+          },
+          {
+            "min_qty": 900,
+            "unit_cost": 4.49
+          },
+          {
+            "min_qty": 3000,
+            "unit_cost": 3.98
+          }
+        ],
+        "unit_weight_kg": 0.4,
+        "packaging_cost": 0.45,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  },
+  {
+    "id": "sup-wooden-toys-craft",
+    "name": "Treehouse Joinery",
+    "family": "wooden_toys",
+    "profile": "craft",
+    "region": "Domestic workshop",
+    "ships_from": "LOCAL",
+    "moq": 50,
+    "lead_time_days": 14,
+    "freight_per_kg_usd": {
+      "US": 1.2,
+      "EU": 1.2,
+      "UK": 1.2,
+      "AU": 1.2,
+      "other": 2.5
+    },
+    "rating": 4.8,
+    "defect_rate_pct": 0.8,
+    "sample_cost_usd": 20,
+    "sample_days": 5,
+    "certifications": [],
+    "payment_terms": "100% on order",
+    "notes": "Small-batch, ships from the launch country; highest unit cost.",
+    "products": [
+      {
+        "sku": "sup-wooden-toys-craft-1",
+        "name": "Wooden stacking rainbow",
+        "spec": "7 arcs, water-based paint, 28 cm",
+        "materials": "beech wood",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 13.69
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 12.05
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 10.68
+          }
+        ],
+        "unit_weight_kg": 0.9,
+        "packaging_cost": 0.57,
+        "customization": "custom branding/label included above MOQ"
+      },
+      {
+        "sku": "sup-wooden-toys-craft-2",
+        "name": "Wooden pull-along animal",
+        "spec": "Hand-finished, 18 cm, cotton cord",
+        "materials": "beech wood",
+        "price_breaks": [
+          {
+            "min_qty": 50,
+            "unit_cost": 9.44
+          },
+          {
+            "min_qty": 150,
+            "unit_cost": 8.31
+          },
+          {
+            "min_qty": 500,
+            "unit_cost": 7.36
+          }
+        ],
+        "unit_weight_kg": 0.4,
+        "packaging_cost": 0.45,
+        "customization": "custom branding/label included above MOQ"
+      }
+    ]
+  }
+]

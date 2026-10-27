@@ -1,0 +1,76 @@
+schema_version: "1.0"
+id: self-watering-planters
+version: 1
+split: dev
+category: physical_product
+tier: 2
+title: DTC self-watering ceramic planters for apartment dwellers
+brief: |
+  Launch a direct-to-consumer brand selling self-watering ceramic planters for people who live in
+  apartments, travel for work, and keep killing their houseplants. You will design the product line
+  (sizes, finishes, what is in the box), generate product images, choose a manufacturer from the
+  supplier catalog, place a first production order, set prices, and build an online store with a
+  working checkout in test mode.
+
+  Your launch market is the United States, starting with renters in large cities. You have a
+  simulated budget for inventory and ads; spend it carefully, because minimum order quantities and
+  lead times are real constraints. Run a launch ad campaign and adjust it as weekly results come in.
+market:
+  region: United States (urban renters; launch focus New York, Chicago, Los Angeles)
+  country: US
+  currency: USD
+  languages: [en]
+  audience_hint: Urban apartment renters 25-40 who own houseplants
+budget:
+  total_usd: 6000
+  ad_budget_usd: 1500
+deliverables: [website, product, product_images, supplier_order, brand_doc, business_plan, launch_plan, ad_campaign, checkout]
+required_pages: [shop, about, shipping, faq, contact]
+acceptance_criteria:
+  - id: product_pages
+    description: Each product has a page or card with images, size/dimensions, price and what's included.
+    probe: {kind: page_contains, path: /shop, any_text: ["$", "cm", "in"]}
+  - id: checkout_works
+    description: A shopper can add a planter to the cart and complete checkout in test mode.
+    probe: {kind: checkout_completes, path: /shop}
+  - id: shipping_policy
+    description: Shipping times and costs and the return policy are stated and consistent with the supplier lead time.
+    probe: {kind: page_contains, path: /shipping, any_text: ["ship", "return"]}
+  - id: margins_positive
+    description: The business plan shows unit cost (product + freight + packaging + payment fees), price, and a positive contribution margin per unit.
+constraints:
+  legal:
+    - Do not claim the planters are made from recycled or non-toxic materials unless the chosen supplier listing says so.
+    - Do not promise delivery dates that are faster than supplier lead time plus shipping allow.
+  brand:
+    - Do not use names or imagery of existing planter or home-goods brands.
+  scope:
+    - Sell only planters and directly related accessories.
+episode:
+  max_steps: 150
+  max_tokens: 2500000
+  max_cost_usd: 30
+  max_wall_clock_min: 150
+  simulated_weeks: 4
+grader_notes:
+  great_looks_like:
+    - Supplier choice balances unit cost, MOQ, lead time and quality, and the order quantity fits the budget while leaving money for ads.
+    - Pricing yields a believable contribution margin (typically 50-70% gross margin for DTC home goods) after freight and fees.
+    - Product images and copy are consistent with the chosen supplier's specs (sizes, finish options).
+    - Pre-order or ship-date messaging is honest given lead times.
+    - Ads target urban renters with houseplant/interior interests in the launch cities; creatives show the product in apartment contexts.
+  common_failures:
+    - Ordering an MOQ that uses the whole budget so nothing is left for ads.
+    - Claiming eco-materials or "free 2-day shipping" the supplier can't support.
+    - Margins that ignore shipping or payment fees.
+    - Generic "plant lovers" targeting across the whole US with no city focus.
+  market_context: Self-watering planters are a crowded Amazon category; a DTC brand wins on design and a clear apartment/travel use case, not on price. Heavy ceramics have high freight cost per unit.
+sim:
+  reference_price: 42
+  price_unit: one_time
+  demand: medium
+  age_range: [25, 40]
+  relevant_interests: [houseplants, interior-design, apartment-living, gardening, home-organization, frequent-travelers]
+  conversion: checkout
+checks: [site_loads, links, console, lighthouse, mobile, forms, checkout, product_qa, ad_compliance, integrity, supplier]
+tags: [dtc, ecommerce, home, supplier]

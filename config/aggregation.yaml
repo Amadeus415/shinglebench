@@ -1,0 +1,9 @@
+# How human and LLM-judge scores combine into the headline number.
+# When a run has no human grades, the combined score falls back to LLM-only (and is labeled so).
+combine:
+  human: 0.6
+  llm: 0.4
+bootstrap_reps: 2000
+# Runs whose integrity check found grader-directed injection get their LLM scores
+# replaced by the strictest judge's scores and are queued for human review.
+injection_policy: strictest_judge_and_flag

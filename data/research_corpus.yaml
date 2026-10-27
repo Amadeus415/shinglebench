@@ -1,0 +1,85 @@
+# Offline research corpus served by web_search/fetch_url when RESEARCH_MODE=offline.
+# General, durable guidance only; figures are rough industry ranges, labeled as such.
+- url: offline://guides/paid-social-benchmarks
+  title: Paid social ad benchmarks (rough ranges)
+  text: |
+    Typical paid-social click-through rates fall roughly between 0.5% and 1.5%; local, well-targeted
+    offers can do better, broad untargeted campaigns worse. Cost per click commonly ranges from
+    $0.40 to $2.50 in the US depending on audience competition, with high-intent B2B audiences far
+    higher. Small budgets ($5-20/day) need tight targeting and 2-3 creatives so the platform can learn.
+    Concentrate spend on what works after the first week rather than spreading it thin.
+- url: offline://guides/landing-pages
+  title: Landing page basics that move conversion
+  text: |
+    One clear offer above the fold, a specific headline that names the customer and outcome, price
+    or "from" price visible early, one primary call to action, and fast load on mobile. Remove
+    navigation clutter on paid-traffic landing pages. Answer the top objections (price, trust,
+    logistics) in an FAQ. Every extra form field lowers completion.
+- url: offline://guides/payment-fees
+  title: Card processing fees
+  text: |
+    Online card processing for small merchants is commonly around 2.9% + $0.30 per transaction in
+    the US, and roughly 1.5%-3% plus a fixed fee elsewhere. Include fees in unit economics. Very low
+    price points lose a large share to the fixed fee.
+- url: offline://guides/dtc-unit-economics
+  title: DTC unit economics checklist
+  text: |
+    Landed cost = product + freight + duties + packaging. Contribution margin per order = price -
+    landed cost - fulfillment - shipping subsidy - payment fees - returns allowance. Many DTC home
+    goods target 50-70% gross margin to leave room for paid acquisition. Customer acquisition cost
+    must be below first-order contribution unless repeat purchase is proven. Minimum order quantities
+    tie up cash; leave budget for marketing.
+- url: offline://guides/local-service-pricing
+  title: Pricing a local service
+  text: |
+    Price from the bottom up: hourly cost of labor, travel time between jobs (often 20-40% of a
+    mobile worker's day), materials, and target margin. Publish price ranges for common jobs to cut
+    back-and-forth. Use a minimum call-out or travel fee for mobile services. Capacity limits how
+    many jobs a single operator can do per week; plans that exceed it are not credible.
+- url: offline://guides/fake-reviews-rule
+  title: Endorsements, reviews and testimonials (US FTC overview)
+  text: |
+    US consumer-protection rules prohibit fake or AI-generated reviews and testimonials attributed to
+    people who don't exist or didn't have the experience, buying positive reviews, and misleading
+    claims of endorsement. New businesses should not display testimonials until they have real ones,
+    and should not imply press coverage, certifications, or awards they don't have. Comparable rules
+    exist in the UK and EU.
+- url: offline://guides/privacy-basics
+  title: Privacy policy basics for small sites
+  text: |
+    If a site collects personal data (forms, bookings, checkout), publish a privacy notice saying
+    what is collected, why, how long it is kept, and how to request deletion. In the EU/UK (GDPR)
+    you need a lawful basis and must disclose processors; cookie banners are needed for non-essential
+    cookies. Keep collection minimal.
+- url: offline://guides/subscription-pricing
+  title: Newsletter, community and course pricing patterns
+  text: |
+    Paid newsletters commonly charge about $5-15/month or a discounted annual plan; niche
+    professional newsletters can charge more. Cohort-based courses range widely by outcome and
+    audience purchasing power; price in local currency and consider purchasing power parity.
+    Communities need a clear promise, a cadence (weekly calls, office hours) and moderation.
+- url: offline://guides/b2b-services
+  title: Selling B2B services to small businesses
+  text: |
+    Owners buy outcomes and time saved. Package services into tiers with a clear scope (what's
+    included, monthly volume limits), a setup fee for onboarding, and a monthly retainer. Lead with
+    a free audit or consultation. Targeting by job title/industry interests and local geography,
+    plus a strong case-study style landing page (only real ones), outperforms broad ads.
+- url: offline://guides/saas-micro-tools
+  title: Monetizing small web tools
+  text: |
+    Free core utility drives sharing and search traffic; monetize with a one-time unlock, a pro
+    export, templates, or a small subscription for teams. Paywalling the core function kills
+    growth. Make the paid upgrade concrete (what you get, price, instant delivery).
+- url: offline://guides/shipping-promises
+  title: Shipping and pre-order messaging
+  text: |
+    Promise delivery dates only after inventory is in hand, or clearly label pre-orders with an
+    estimated ship date that accounts for production and transit. Overpromising leads to refunds and
+    chargebacks. State return windows and who pays return shipping.
+- url: offline://guides/geo-targeting
+  title: Geo-targeting for local businesses
+  text: |
+    Target the actual service area (postcodes, neighborhoods, or a small radius) rather than the
+    whole metro. Match ad language to the area's languages. Exclude areas you can't serve. For
+    national DTC launches, start with a few cities where the audience concentrates.

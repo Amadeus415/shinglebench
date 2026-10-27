@@ -1,0 +1,88 @@
+schema_version: "1.0"
+id: k5-math-tutoring-naperville
+version: 1
+split: dev
+category: local_service
+tier: 2
+title: K-5 math tutoring in Naperville, IL
+brief: |
+  You taught elementary school for nine years and are now starting a K-5 math tutoring business in
+  Naperville, Illinois. Parents here care a lot about school performance. Some want help with
+  homework and catching up after a hard year, some want enrichment or math-competition practice, and
+  many are comparing tutoring centers against private tutors. You have passed a background check and
+  can share it with parents on request.
+
+  You can tutor about 20 hours a week: weekday afternoons from 3:30 to 7pm and Saturday mornings.
+  Sessions can happen at the family's home, in a public library study room, or online. Define your
+  programs by grade level, set prices (single sessions and packages), and build a website where a
+  parent can understand what you offer, see your safety policies, and book a free 20-minute
+  assessment call. Brand the business, create ads aimed at parents, and run a launch campaign on the
+  simulated ad platform. Each week you will see results; use them to improve.
+market:
+  region: Naperville, IL, USA (western Chicago suburbs)
+  country: US
+  city: Naperville
+  neighborhood: Naperville (ZIPs 60540, 60563, 60564, 60565)
+  lat: 41.7508
+  lon: -88.1535
+  service_radius_km: 10
+  currency: USD
+  languages: [en]
+  audience_hint: Parents of children in kindergarten through 5th grade in Naperville
+budget:
+  total_usd: 1200
+  ad_budget_usd: 500
+deliverables: [website, product, brand_doc, business_plan, launch_plan, ad_campaign, booking_flow, contact_form]
+required_pages: [programs, pricing, about, book, faq, contact]
+acceptance_criteria:
+  - id: programs_by_grade
+    description: Programs are described by grade band (e.g. K-2, 3-5) and goal (catch-up, homework support, enrichment).
+    probe: {kind: page_contains, path: /programs, any_text: ["grade", "K-2", "kindergarten", "3-5"]}
+  - id: pricing_clear
+    description: Prices for single sessions and packages are listed, including any travel fee for in-home sessions.
+    probe: {kind: page_contains, path: /pricing, any_text: ["$", "session", "package"]}
+  - id: assessment_booking
+    description: A parent can book a free assessment call with their name, contact, child's grade and goals, and sees a confirmation.
+    probe: {kind: form_submits, path: /book}
+  - id: safety_policy
+    description: The site states a child-safety policy (e.g. a parent or guardian stays home during in-home sessions, the background check is available on request).
+    probe: {kind: page_contains, path: /faq, any_text: ["background", "safety", "parent", "guardian"]}
+  - id: schedule_fits
+    description: The plan's weekly session count fits about 20 hours including travel between homes and libraries.
+constraints:
+  legal:
+    - Do not guarantee grade, test-score or placement outcomes.
+    - Do not claim a current teaching license, certifications or school-district affiliation the business has not been told it has.
+    - Ads must be aimed at parents, not children; do not use images of real children.
+  brand:
+    - Do not use names or logos of tutoring franchises, curriculum publishers or school districts.
+  scope:
+    - K-5 math only; Naperville and immediate surroundings for in-person sessions.
+episode:
+  max_steps: 140
+  max_tokens: 2500000
+  max_cost_usd: 30
+  max_wall_clock_min: 150
+  simulated_weeks: 4
+grader_notes:
+  great_looks_like:
+    - Prices in line with an affluent suburb (roughly $55-90 per hour), with 8- or 12-session packages and a clear travel policy.
+    - Targeting is limited to Naperville ZIPs and a small radius, aimed at parents (roughly 30-50) with interests in education and parenting; creatives speak to specific worries (fractions in 4th grade, confidence, competition prep).
+    - The schedule math is honest (roughly 12-18 billable sessions a week once travel is included).
+    - The safety policy is concrete and reassuring without overclaiming.
+    - Iteration uses weekly data, e.g. testing enrichment vs. catch-up messaging.
+  common_failures:
+    - Promising results such as "raise scores two grade levels in a month".
+    - Claiming partnership with Naperville school districts or using district logos.
+    - Targeting all of Chicagoland or targeting students directly.
+    - Fake parent testimonials or an implausible 40 sessions a week.
+  market_context: Naperville is an affluent western Chicago suburb served mainly by two highly regarded school districts (Naperville 203 and Indian Prairie 204). Demand for enrichment and competition math is strong, and there are large South Asian and East Asian family communities. Parents compare tutors closely on price per hour, credentials and results, and word of mouth through school and community groups is powerful.
+sim:
+  reference_price: 70
+  price_unit: per_session
+  demand: high
+  age_range: [32, 50]
+  relevant_interests: [parenting, elementary-school, tutoring, math, stem-education, child-development]
+  conversion: booking
+checks: [site_loads, links, console, lighthouse, mobile, forms, product_qa, ad_compliance, integrity]
+tags: [local, service, education, suburban, booking, minors]

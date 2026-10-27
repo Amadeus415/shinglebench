@@ -1,0 +1,6 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Shingle grading{% endblock %}</title><link rel="stylesheet" href="/static/app.css"></head><body>
+<header class="top"><a class="brand" href="/">Shingle · grading</a>
+<nav>{% if u %}<a href="/">My queue</a>{% if u.role == 'admin' %}<a href="/dashboard">Dashboard</a><a href="/admin">Admin</a>{% endif %}{% endif %}</nav>
+{% if u %}<span class="who">{{ u.username }} · <a href="/logout">log out</a></span>{% endif %}</header>
+<main>{% block body %}{% endblock %}</main><script src="/static/app.js"></script></body></html>

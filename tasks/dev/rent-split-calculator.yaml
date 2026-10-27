@@ -1,0 +1,80 @@
+schema_version: "1.0"
+id: rent-split-calculator
+version: 1
+split: dev
+category: digital_product
+tier: 1
+title: Fair rent-split calculator for shared apartments
+brief: |
+  Roommates in expensive cities fight about rent. When bedrooms differ in size, have a private
+  bathroom, or one person has the parking spot, splitting rent evenly feels unfair, and most people
+  end up arguing over a spreadsheet.
+
+  Build and launch a small web tool that lets a household split monthly rent fairly. A visitor
+  should be able to enter the total rent and each room's details and immediately see what each
+  person pays, with the amounts adding up exactly to the total. Decide how (and whether) to make
+  money from it, for example a paid add-on, a one-time unlock, or a tip jar, and make that purchase
+  work end to end in test mode.
+
+  Your first customers are renters in San Francisco and Oakland, mostly 22 to 35, sharing 2 to 5
+  bedroom apartments. Launch it with a small paid ad test and improve it based on what you learn.
+market:
+  region: San Francisco Bay Area, CA, USA
+  country: US
+  city: San Francisco
+  currency: USD
+  languages: [en]
+  audience_hint: Renters 22-35 sharing apartments in SF and Oakland
+budget:
+  total_usd: 400
+  ad_budget_usd: 300
+deliverables: [website, product, brand_doc, business_plan, launch_plan, ad_campaign, checkout]
+required_pages: [pricing, faq, privacy]
+acceptance_criteria:
+  - id: computes_split
+    description: Entering a total rent and at least two rooms produces a per-person amount for each room.
+    probe: {kind: interact, path: /, inputs: ["3600", "3"], any_text: ["$", "per"]}
+  - id: sums_to_total
+    description: The per-person amounts add up exactly to the total rent (no rounding drift).
+    probe: {kind: interact, path: /, inputs: ["3601", "3"], any_text: ["3,601", "3601"]}
+  - id: room_factors
+    description: Room size or features (private bath, parking) change the split, not just an even division.
+    probe: {kind: page_contains, path: /, any_text: ["size", "bath", "sq"]}
+  - id: paid_unlock
+    description: There is a paid option and its checkout completes in test mode.
+    probe: {kind: checkout_completes, path: /pricing}
+constraints:
+  legal:
+    - Do not present the tool as legal or financial advice; include a short disclaimer.
+    - Include a privacy page that says what data is stored.
+  brand:
+    - Do not use the names or logos of existing rent-split apps or real estate companies.
+  scope:
+    - The calculator must work in the browser without an account.
+episode:
+  max_steps: 120
+  max_tokens: 2000000
+  max_cost_usd: 25
+  max_wall_clock_min: 120
+  simulated_weeks: 3
+grader_notes:
+  great_looks_like:
+    - The calculator is immediately usable above the fold on mobile and the math is transparent (shows the formula or weights).
+    - Rounding is handled so totals always match to the cent.
+    - Monetization is light-touch and honest (e.g. $3-6 one-time unlock for a printable roommate agreement), consistent across site, plan and ads.
+    - Ads target SF/Oakland renters by geo and age with interests like roommates, apartment hunting; budget concentrated on the best-performing creative after week 1.
+  common_failures:
+    - Even split only, ignoring room differences, or totals that drift by a cent.
+    - Paywalling the core calculator, which kills the free-tool growth loop.
+    - Nationwide targeting or targeting homeowners.
+    - Fake user counts ("used by 50,000 roommates") or fake press logos.
+  market_context: SF and Oakland median rents are among the highest in the US; shared housing is common among young professionals, and fairness disputes are a known pain point. Word of mouth and Reddit-style communities matter more than polished branding.
+sim:
+  reference_price: 5
+  price_unit: one_time
+  demand: medium
+  age_range: [22, 35]
+  relevant_interests: [roommates, renting, apartment-living, budgeting, personal-finance, moving]
+  conversion: checkout
+checks: [site_loads, links, console, lighthouse, mobile, forms, checkout, product_qa, ad_compliance, integrity]
+tags: [calculator, consumer, freemium, sf]

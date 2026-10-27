@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Shingle{% endblock %}</title><meta name="description" content="{% block desc %}ShingleBench measures whether AI models can start a real business end to end: product, website, brand, ads, pricing and iteration, graded by blind humans and LLM judges.{% endblock %}">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/site.css"><style>{{ VIZ_CSS|safe }}</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 4h20' stroke='%231f3b73' stroke-width='3'/%3E%3Cpath d='M10 4v7M22 4v7' stroke='%231f3b73' stroke-width='2'/%3E%3Crect x='4' y='11' width='24' height='15' rx='2' fill='%231f3b73'/%3E%3C/svg%3E">
+</head><body><a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="wrap"><a class="logo" href="/" aria-label="Shingle home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 4h20" stroke="currentColor" stroke-width="3"/><path d="M10 4v7M22 4v7" stroke="currentColor" stroke-width="2"/><rect x="4" y="11" width="24" height="15" rx="2" fill="currentColor"/></svg>Shingle</a>
+<nav class="main" aria-label="Main">{% for href, label, key in [('/leaderboard.html','Leaderboard','leaderboard'),('/showcase.html','Showcase','showcase'),('/methodology.html','Methodology','methodology'),('/labs.html','For labs','labs'),('/blog/report-01.html','Report 01','blog/report-01')] %}<a href="{{ href }}"{% if page == key %} aria-current="page"{% endif %}>{{ label }}</a>{% endfor %}</nav></div></header>
+<main id="main"><div class="wrap">{% block body %}{% endblock %}</div></main>
+<footer class="site"><div class="wrap"><div><strong style="color:var(--ink)">Shingle</strong> runs ShingleBench, an independent benchmark of whether AI models can start real businesses. We do not take payment to rank models.<br>
+Results data: <a href="/data/results.json">results.json</a> (CC BY 4.0). Benchmark {{ version }} · built {{ built }}.</div>
+<div><a href="/leaderboard.html">Leaderboard</a><br><a href="/showcase.html">Showcase</a><br><a href="/methodology.html">Methodology</a></div>
+<div><a href="/labs.html">For labs &amp; enterprises</a><br><a href="/blog/report-01.html">Report 01</a><br><a href="/methodology.html#contamination">Canary &amp; contamination</a></div></div></footer>
+</body></html>

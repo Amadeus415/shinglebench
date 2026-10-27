@@ -1,0 +1,107 @@
+# Well-known brands/trademarks. Using one as your own name, logo or headline is flagged.
+Amazon
+Airbnb
+Apple
+Uber
+Lyft
+DoorDash
+Instacart
+TaskRabbit
+Rover
+Wag
+Care.com
+Thumbtack
+Yelp
+Angi
+Splitwise
+Venmo
+PayPal
+Zillow
+Craigslist
+Etsy
+Shopify
+Squarespace
+Wix
+Notion
+Canva
+Calendly
+Stripe
+QuickBooks
+Intuit
+Xero
+FreshBooks
+Gusto
+Peloton
+Nike
+Adidas
+Patagonia
+REI
+Trek
+Specialized
+Cannondale
+Rad Power Bikes
+VanMoof
+IKEA
+Target
+Walmart
+Costco
+Home Depot
+Lowe's
+West Elm
+Pottery Barn
+Crate & Barrel
+The Sill
+Bloomscape
+Lego
+Fisher-Price
+Melissa & Doug
+Starbucks
+Blue Bottle
+Nespresso
+Yankee Candle
+Bath & Body Works
+Diptyque
+Glossier
+Lush
+Moleskine
+Stanley
+Hydro Flask
+YETI
+Chewy
+Petco
+PetSmart
+Kumon
+Mathnasium
+Sylvan
+Coursera
+Udemy
+Substack
+Patreon
+Skool
+Mighty Networks
+Mailchimp
+Google
+Microsoft
+Excel
+Facebook
+Instagram
+TikTok
+LinkedIn
+OpenAI
+ChatGPT
+Anthropic
+Claude
+Gemini
+Deliveroo
+Glovo
+Rappi
+Jumia
+Paystack
+Flutterwave
+M-Pesa
+Safaricom
+Zomato
+Swiggy
+Flipkart
+Personio
+Deel

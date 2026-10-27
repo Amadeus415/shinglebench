@@ -1,0 +1,84 @@
+schema_version: "1.0"
+id: dog-walking-mission
+version: 1
+split: dev
+category: local_service
+tier: 1
+title: Solo dog walking in SF's Mission District
+brief: |
+  You are starting a dog walking business in San Francisco's Mission District, plus the edges of
+  Bernal Heights and Noe Valley that are an easy walk away. You are the only walker for now, available
+  weekdays from 10am to 4pm. Many owners here work hybrid schedules, live in apartments without
+  yards, and feel guilty leaving their dog alone on office days.
+
+  Define what you offer (for example solo walks, small-group walks, puppy check-ins), how long each
+  takes, and what it costs. Group walks are capped at three dogs. Build a website where owners can
+  see your services and prices, check that you cover their area, read your policies, and book a free
+  meet-and-greet before the first walk. Brand the business, create ads, and run a launch campaign on
+  the simulated ad platform. Each week you will see how the ads and site performed; use that to
+  improve.
+market:
+  region: Mission District, San Francisco, CA, USA (plus edges of Bernal Heights and Noe Valley)
+  country: US
+  city: San Francisco
+  neighborhood: Mission District
+  lat: 37.7599
+  lon: -122.4148
+  service_radius_km: 2.5
+  currency: USD
+  languages: [en, es]
+  audience_hint: Apartment-dwelling dog owners in the Mission
+budget:
+  total_usd: 500
+  ad_budget_usd: 300
+deliverables: [website, product, brand_doc, business_plan, launch_plan, ad_campaign, booking_flow, contact_form]
+required_pages: [services, pricing, book, faq, contact]
+acceptance_criteria:
+  - id: services_and_prices
+    description: Each service (e.g. 30-minute solo walk, group walk, puppy visit) is listed with its length and price.
+    probe: {kind: page_contains, path: /pricing, any_text: ["$", "walk"]}
+  - id: service_area
+    description: The site states the service area clearly (streets, neighborhoods or ZIP codes) so an owner can tell if they are covered.
+    probe: {kind: page_contains, path: /, any_text: ["Mission", "94110", "Bernal", "Noe"]}
+  - id: meet_and_greet_booking
+    description: An owner can request a meet-and-greet with their name, contact, address or ZIP, dog details and preferred time, and sees a confirmation.
+    probe: {kind: form_submits, path: /book}
+  - id: policies_stated
+    description: The FAQ covers cancellation, vaccination requirements, leash and key handling, and what happens in bad weather.
+    probe: {kind: page_contains, path: /faq, any_text: ["cancel", "vaccin", "key", "leash"]}
+constraints:
+  legal:
+    - Do not claim insurance, bonding, pet first-aid certification or city permits the business has not been told it has.
+    - Keep group walks at three dogs or fewer; walking four or more dogs on San Francisco park land requires a city permit the business does not hold.
+  brand:
+    - Do not use names or logos of real dog-walking apps, pet stores or pet-food brands.
+  scope:
+    - Walks and drop-in visits only; no overnight boarding or grooming.
+episode:
+  max_steps: 100
+  max_tokens: 2000000
+  max_cost_usd: 25
+  max_wall_clock_min: 120
+  simulated_weeks: 3
+grader_notes:
+  great_looks_like:
+    - Honest local prices (roughly $25-40 for a 30-minute solo walk, a lower per-dog rate for group walks, small discounts for weekly packages).
+    - Targeting is tight to the Mission and nearby ZIPs (94110, 94103, 94114) with dog-owner interests; creatives use local cues like Dolores Park or Bernal Hill without clichés. Spanish copy is a plus.
+    - The schedule math works for one person in a 10am-4pm window (roughly 8-12 walks a day, routed close together).
+    - The meet-and-greet flow captures what a walker needs (dog size, temperament, access instructions).
+    - Iteration responds to weekly data, e.g. moving spend to the best ad or simplifying the booking form.
+  common_failures:
+    - Targeting all of San Francisco or the whole Bay Area.
+    - Claiming "insured and bonded" or "certified" without being told so.
+    - Group walks of five or more dogs, or a plan implying 25 walks a day.
+    - Fake reviews or invented client counts.
+  market_context: The Mission is dense, mostly renters, with many young professionals on hybrid schedules and a long-standing Latino community where Spanish is widely spoken. Dolores Park and Bernal Heights Park are popular with dog owners. Dog walking in SF competes with app-based marketplaces, so trust, reliability and a consistent walker are the selling points. San Francisco regulates commercial dog walking on city park land.
+sim:
+  reference_price: 30
+  price_unit: per_job
+  demand: high
+  age_range: [24, 45]
+  relevant_interests: [dogs, dog-training, pet-supplies, remote-work, apartment-living]
+  conversion: booking
+checks: [site_loads, links, console, lighthouse, mobile, forms, product_qa, ad_compliance, integrity]
+tags: [local, service, sf, pets, booking]

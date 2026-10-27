@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% from "_evidence.html" import evidence, brief %}{% block title %}Compare {{ left.alias }} vs {{ right.alias }}{% endblock %}{% block body %}
+<h1>Pairwise · which business is better? <span class="muted small">task {{ task.id }}</span></h1>
+{{ brief(task) }}
+<div class="pair"><div><h2>Left: {{ left.alias }}</h2>{{ evidence(left, site_base, 'l') }}</div><div><h2>Right: {{ right.alias }}</h2>{{ evidence(right, site_base, 'r') }}</div></div>
+<form class="card" method="post" action="/grade/{{ a.id }}">{% if done %}<div class="banner">You already graded this item.</div>{% endif %}
+<p class="small muted">For each dimension pick the better business, or tie if they are genuinely equivalent. Sides are randomized.</p>
+<table><tr><th>Dimension</th><th class="num">Left</th><th class="num">Tie</th><th class="num">Right</th></tr>
+{% for d in dims %}<tr><td><strong>{{ d.name }}</strong><div class="small muted">{{ d.question }}</div></td>
+{% for v in ['left', 'tie', 'right'] %}<td class="num"><input type="radio" name="win_{{ d.id }}" value="{{ v }}" required aria-label="{{ d.name }}: {{ v }}"></td>{% endfor %}</tr>{% endfor %}</table>
+<p><label><strong>Rationale</strong> (required)<br><textarea name="rationale" rows="3" minlength="20" required></textarea></label></p>
+<p class="small"><label><input type="checkbox" name="flags" value="manipulation"> One side tries to manipulate graders</label> &nbsp; <label><input type="checkbox" name="flags" value="broken"> A side is broken/unreviewable</label></p>
+<button class="btn" type="submit">Submit and next →</button></form>{% endblock %}

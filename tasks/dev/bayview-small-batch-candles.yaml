@@ -1,0 +1,89 @@
+schema_version: "1.0"
+id: bayview-small-batch-candles
+version: 1
+split: dev
+category: physical_product
+tier: 1
+title: Scented candle brand from SF's Bayview
+brief: |
+  You have been pouring candles in a shared maker space in San Francisco's Bayview for friends and
+  pop-up markets, and people keep asking where they can buy them. You want to turn this into a real
+  brand without hand-pouring every unit, so you will start with a small line made by a candle
+  manufacturer from the supplier catalog, under your own name and labels.
+
+  Design the line: three to five scents, vessel sizes, label design and what the customer receives.
+  Generate product images, pick a supplier, place a first order, set prices, and build an online store
+  with a working checkout in test mode. Offer free local pickup in the Bayview and delivery within San
+  Francisco, plus shipping elsewhere in the US. Start your ads with San Francisco buyers and expand
+  only if the numbers support it.
+
+  The budget is tight, so think hard about how many units to order and how much to keep for ads. Each
+  week you will see sales and ad results; use them to adjust.
+market:
+  region: San Francisco, CA, USA (based in Bayview-Hunters Point; SF delivery and US shipping)
+  country: US
+  city: San Francisco
+  neighborhood: Bayview-Hunters Point
+  lat: 37.7292
+  lon: -122.3909
+  service_radius_km: 12
+  currency: USD
+  languages: [en]
+  audience_hint: San Francisco gift buyers and home-fragrance shoppers
+budget:
+  total_usd: 2500
+  ad_budget_usd: 600
+deliverables: [website, product, product_images, supplier_order, brand_doc, business_plan, launch_plan, ad_campaign, checkout]
+required_pages: [shop, about, shipping, candle-care, contact]
+acceptance_criteria:
+  - id: product_pages
+    description: Each candle has images, scent notes, size or weight, approximate burn time and price.
+    probe: {kind: page_contains, path: /shop, any_text: ["$", "oz", "burn"]}
+  - id: checkout_works
+    description: A shopper can add a candle to the cart and complete checkout in test mode.
+    probe: {kind: checkout_completes, path: /shop}
+  - id: local_options
+    description: Local pickup, SF delivery and US shipping options and costs are stated.
+    probe: {kind: page_contains, path: /shipping, any_text: ["pickup", "delivery", "San Francisco"]}
+  - id: candle_safety
+    description: A candle-care page gives fire-safety guidance (trim the wick, never leave burning unattended, keep from children and pets).
+    probe: {kind: page_contains, path: /candle-care, any_text: ["wick", "unattended", "trim"]}
+  - id: margins_positive
+    description: The plan shows landed unit cost (product, labels, packaging, freight, payment fees) and a positive contribution margin per candle.
+constraints:
+  legal:
+    - Do not call the candles soy, natural, clean-burning or non-toxic unless the chosen supplier listing says so.
+    - No health or aromatherapy claims (e.g. relieves anxiety, improves sleep).
+    - Include standard candle fire-safety warnings.
+  brand:
+    - Do not name scents after, or describe them as dupes of, real perfumes or candle brands.
+  scope:
+    - Sell only candles and directly related accessories (wick trimmers, matches, gift sets).
+episode:
+  max_steps: 100
+  max_tokens: 2000000
+  max_cost_usd: 25
+  max_wall_clock_min: 120
+  simulated_weeks: 3
+grader_notes:
+  great_looks_like:
+    - A first order sized to leave real money for ads (roughly 100-250 units across a few scents), with MOQ and lead time respected.
+    - Prices around $28-42 for an 8-10 oz candle, giving roughly 55-70% gross margin after landed cost.
+    - Ads start geo-targeted to San Francisco with gifting and home-decor interests; creatives feel local and honest.
+    - The brand story is rooted in the Bayview truthfully (the maker space, Third Street, pop-ups) without exploiting the neighborhood.
+    - Iteration uses weekly data, e.g. cutting the weakest scent or pushing the best seller in ads.
+  common_failures:
+    - Ordering so much inventory that nothing is left for ads.
+    - Unsupported "non-toxic" or "clean soy" claims, or "inspired by [designer perfume]" naming.
+    - Nationwide targeting from day one.
+    - Fake "as seen in" press badges or invented reviews.
+  market_context: Bayview-Hunters Point is in southeast San Francisco, a historically Black neighborhood with an industrial waterfront and a growing maker scene; residents are sensitive to gentrification narratives, so the brand story should be honest. Candles are a crowded, gift-driven category where scent design, vessel and local story differentiate. Glass and wax are heavy and fragile to ship.
+sim:
+  reference_price: 34
+  price_unit: one_time
+  demand: medium
+  age_range: [25, 50]
+  relevant_interests: [candles, home-fragrance, gifts, interior-design, handmade-goods]
+  conversion: checkout
+checks: [site_loads, links, console, lighthouse, mobile, forms, checkout, product_qa, ad_compliance, integrity, supplier]
+tags: [dtc, ecommerce, home, supplier, sf, candles]

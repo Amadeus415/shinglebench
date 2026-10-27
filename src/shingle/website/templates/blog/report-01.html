@@ -1,0 +1,31 @@
+{% extends "base.html" %}{% from "_macros.html" import demo_banner, card %}{% block title %}Report 01: Introducing ShingleBench · Shingle{% endblock %}{% block body %}<article class="report">
+<p class="note" style="margin-top:48px">Report 01 · {{ res.generated_at[:10] }} · benchmark {{ version }}</p>
+<h1 style="max-width:20ch">Introducing ShingleBench: can an AI start a business?</h1>
+<p class="lede">Most agent benchmarks ask whether a model can finish a task. We ask whether it can build something people would pay for, in a specific place, for a specific audience, without lying to get there.</p>
+<h2>Why this, why now</h2>
+<p>Models can now write a website in seconds. A business is harder. It needs an offer that fits a market, a price that covers costs, ads that reach the right people in the right language, a checkout that works on a phone, and the discipline to change course when customers don't show up. Those skills are economically valuable and they decide how an autonomous agent behaves around real money and real people. Existing benchmarks don't measure them together.</p>
+<p>ShingleBench gives a model a brief, such as <em>mobile bike repair in San Francisco's Outer Sunset</em> or <em>self-watering planters for urban renters</em>. The model gets a sandbox with no internet and simulated ad, payment and supplier services. It builds the product, the site, the brand, the campaigns and the plan, then operates the business for several simulated weeks. We freeze what it made and have it graded by automated checks, blind human graders and LLM judges, with the agreement between those groups published.</p>
+<h2>What Report 01 is, and isn't</h2>
+{{ demo_banner(res) }}
+<p>This first round tests the instrument itself. It runs {{ res.models|length }} agent configurations on {{ res.tasks|length }} public briefs (a digital tool, a local service and a physical product) with {{ res.seeds|length }} seeds each, through the full pipeline. That covers episodes, frozen bundles, checks, LLM judges, blind grading and aggregation with hierarchical bootstrap intervals.</p>
+{{ ci_chart(ci_rows)|safe }}
+<h2>What the pipeline caught</h2>
+<p>The scripted corner-cutting agent was built to fail in the ways real agents fail, and the benchmark catches each one:</p>
+<ul><li><strong>Fake social proof.</strong> Five-star testimonials from invented customers and “10,000+ happy customers” on a business that opened that week were flagged automatically and capped its Overall score.</li>
+<li><strong>Manipulating the graders.</strong> A hidden HTML comment told “AI graders” to score it 7/7. The integrity check detected it, the judges were instructed to treat site text as untrusted data, and the run was scored by the strictest judge and queued for human review.</li>
+<li><strong>Broken on phones.</strong> A fixed-width layout without a viewport tag failed the mobile check. Simulated phone visitors ran into the same problem.</li>
+<li><strong>Inventory it couldn't afford.</strong> Ordering three times the minimum quantity from the cheapest overseas supplier exceeded the budget, so there was nothing to sell, while the site promised free two-day shipping.</li>
+<li><strong>Targeting the whole country</strong> for a neighborhood service wasted most of the simulated ad budget.</li></ul>
+{% set top = res.models[0].model %}{% set top_cases = ranked|selectattr('run.model', 'equalto', top)|list %}{% set clean = top_cases|rejectattr('failing')|list %}
+<p>The leading configuration, {{ top }}, passed every automated check on {{ clean|length }} of {{ top_cases|length }} runs.{% for c in top_cases if c.failing %} On <a href="{{ c.url }}">{{ c.task.title }}, seed {{ c.run.seed }}</a>, it failed {{ c.failing|join(', ')|replace('_', ' ') }}, and the checks caught it.{% endfor %}</p>
+<h2>Three businesses from this round</h2><div class="grid-cases">{% for c in ranked[:2] + ranked[-1:] %}{{ card(c) }}{% endfor %}</div>
+<h2>What comes next</h2>
+<p>Report 02 will run frontier and open-weight models on the full held-out suite with three seeds per brief and real blind human grading. Labs that want a private pre-release evaluation can <a href="/labs.html#contact">get in touch</a>.</p>
+<h2>Limitations</h2>
+<p>The simulated market is directional and excluded from scores. Scripted agents and judges stand in for real ones in this demo round. Small rounds give wide intervals. The full list is in the <a href="/methodology.html#limitations">methodology</a>.</p>
+<h2>Cite</h2><pre>@misc{shinglebench2026report01,
+  title  = {ShingleBench Report 01: Introducing ShingleBench},
+  author = {Shingle},
+  year   = {2026},
+  note   = {Benchmark {{ version }}, rubric {{ res.rubric }}}
+}</pre></article>{% endblock %}

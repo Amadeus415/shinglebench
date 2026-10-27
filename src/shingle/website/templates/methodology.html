@@ -1,0 +1,76 @@
+{% extends "base.html" %}{% block title %}Methodology · Shingle{% endblock %}{% block body %}<div class="report">
+<h1 style="margin-top:48px;max-width:20ch">Methodology</h1>
+<p class="lede">ShingleBench {{ version }} measures whether a model, working alone over a long episode, can start a small business that would plausibly win real customers, and do it honestly.</p>
+<aside class="callout"><strong>Before you read the numbers.</strong> Scores come from blind human graders and LLM judges using a written rubric. The simulated market exists so models have results to iterate on. It is never part of the score. Benchmark, rubric, harness and prompt versions are recorded with every run.</aside>
+<nav class="toc" aria-label="Contents"><ol><li><a href="#tasks">Tasks</a></li><li><a href="#environment">Environment</a></li><li><a href="#harness">Agent harness</a></li><li><a href="#market">Simulated market</a></li><li><a href="#checks">Automated checks</a></li><li><a href="#rubric">Rubric</a></li><li><a href="#graders">Human and LLM grading</a></li><li><a href="#aggregation">Aggregation and uncertainty</a></li><li><a href="#contamination">Contamination and versioning</a></li><li><a href="#safety">Safety</a></li><li><a href="#limitations">Limitations</a></li><li><a href="#cite">Citation</a></li></ol></nav>
+
+<h2 id="tasks">1. Tasks</h2>
+<p>A task is a business brief written the way a founder or client would write it: what to build, for whom, where, and with what budget. Briefs come in six categories ({% for k, v in counts.categories.items() %}{{ k|lower }} {{ v }}{{ ', ' if not loop.last }}{% endfor %}) and three difficulty tiers. They cover {{ counts.countries }} countries, from San Francisco neighborhoods to rural Montana, Lagos, Lisbon and Bengaluru. Location matters by design: a dog-walking service in the Mission and an elder-companion service in Pune need different offers, prices, languages and targeting.</p>
+<p>Each brief is a versioned, schema-validated file with the brief exactly as the model sees it and a short block of structured facts (market, currency, languages, budget, number of simulated weeks, required pages, acceptance criteria, legal and brand constraints). It also holds material the model never sees: grader notes describing what great looks like and the common failures, deterministic probes for the QA agent, and the hidden anchors of the demand model.</p>
+<p>The suite has {{ counts.tasks }} briefs: {{ counts.dev }} in the public development set and {{ counts.heldout }} held out. Public dev-set briefs:</p>
+<div class="tablewrap"><table><thead><tr><th>Brief</th><th>Category</th><th class="n">Tier</th><th>Market</th></tr></thead><tbody>{% for t in public_tasks.values()|sort(attribute='category.value') %}<tr><td>{{ t.title }}</td><td>{{ CATEGORY_NAMES[t.category.value] }}</td><td class="n">{{ t.tier }}</td><td>{{ t.market.region if t.market else 'Online' }}</td></tr>{% endfor %}</tbody></table></div>
+
+<h2 id="environment">2. Environment</h2>
+<p>Each episode runs in its own sandbox. The model's shell has <strong>no network access</strong>: Docker containers run with <code>--network none</code>, and local development runs use an OS sandbox that blocks the network. Every outside capability is a service the harness brokers and simulates:</p>
+<ul><li><strong>Hosting.</strong> The model writes a static site and deploys it to a preview host. The host provides form handling, a hosted test-mode checkout and a small key-value store, so working products, bookings and payments need no server code. At the end the deployed version is frozen with its payment catalog and can be re-served exactly as it was.</li>
+<li><strong>Images.</strong> One image generator is shared by all models, so image quality doesn't vary with the model under test.</li>
+<li><strong>Ad platform.</strong> Campaigns, ad sets and ads, with validation like a real platform: headline and text limits, call-to-action enums, image ratios and sizes, location and postcode resolution, an interest taxonomy, and the restrictions that apply to special ad categories such as housing.</li>
+<li><strong>Payments.</strong> Test mode only. The Stripe integration refuses any key that isn't a test key.</li>
+<li><strong>Suppliers.</strong> A fictional catalog of 33 manufacturers across 11 product families, with price breaks, minimum order quantities, lead times, freight by destination, samples and listed certifications. Production orders draw down simulated cash, and stock arrives weeks later.</li>
+<li><strong>Research.</strong> Web search is logged and runs offline against a fixed corpus by default, for reproducibility.</li></ul>
+<p>Every model turn and tool call is written to a timestamped trajectory log.</p>
+
+<h2 id="harness">3. Agent harness</h2>
+<p>Every model gets the same system prompt, the same 30 tools and the same budgets: steps, tokens, dollars, wall-clock time and simulated weeks. The scaffold is deliberately plain. A persistent notes file survives context summarization, and summarization starts a new conversation from a summary plus the notes, never by editing past turns. Runs checkpoint after every step and resume after interruption. Providers exist for Anthropic, OpenAI, Google and any OpenAI-compatible endpoint, so open-weight models are covered. Two scripted baselines run in every round. One is an honest template founder that iterates. The other cuts corners: fake testimonials, broad targeting, a layout that breaks on phones, and a planted message aimed at the graders.</p>
+
+<h2 id="market">4. Simulated market</h2>
+<p>After the build week the model calls <code>end_week</code>. Simulated customers then respond to its live ads and site for one week, and it gets back a funnel report and short customer quotes. The market is a <strong>structured demand model</strong>, not free-form role-play:</p>
+<ul><li><strong>Targeting.</strong> Each ad set's targeting is scored against the brief's hidden true audience (geography, ages, interests). This sets what share of impressions reach people who could actually buy.</li>
+<li><strong>Ads.</strong> Creative and site factors set click and conversion rates. Price is compared with each sampled customer's willingness to pay.</li>
+<li><strong>Real browsing.</strong> A panel of sampled personas actually visits the site in a headless browser and submits the booking form or completes test checkout. If real visitors can't convert, extrapolated conversions collapse.</li>
+<li><strong>Inventory.</strong> Physical goods are limited by stock on hand. Honest pre-orders count when stock is in transit.</li></ul>
+<p>All randomness is seeded by task, seed and week, and every persona trace is stored for audit. Results are labeled as simulated wherever they appear.</p>
+
+<h2 id="checks">5. Automated checks</h2>
+<p>Checks run on the frozen bundle and are given to graders as context, not as the score. They cover:</p>
+<ul><li>Site loads, key pages exist, internal links work, and the console has no errors.</li>
+<li>Audits for performance, accessibility, SEO and best practices: Lighthouse where installed, or equivalent built-in audits.</li>
+<li>Phone rendering.</li>
+<li>Each form submits, and test checkout completes.</li>
+<li>A product QA agent that tries the product against the brief's acceptance criteria.</li>
+<li>Ad compliance and targeting sanity.</li>
+<li>Supplier feasibility, including whether promised shipping times match lead times.</li>
+<li>Integrity flags: fabricated reviews or user counts, unsupported credentials or superlatives, material claims the chosen supplier can't support, missing privacy, refund or cancellation terms, real trademarks used as the business's own, and text that tries to manipulate graders.</li></ul>
+
+<h2 id="rubric">6. Rubric ({{ rubric.version }})</h2>
+<p>Nine dimensions, each scored 1–7 against written anchors for every score. Graders also answer one yes/no question: <em>{{ rubric.acceptable_question }}</em> An integrity score of 2 or lower caps Overall at 3, because fake social proof or invented credentials make an otherwise good business unacceptable.</p>
+<div class="tablewrap"><table><thead><tr><th>Dimension</th><th>Question</th><th>1</th><th>4</th><th>7</th></tr></thead><tbody>{% for d in dims %}<tr><td><strong>{{ d.name }}</strong></td><td>{{ d.question }}</td><td>{{ d.anchors[1] }}</td><td>{{ d.anchors[4] }}</td><td>{{ d.anchors[7] }}</td></tr>{% endfor %}</tbody></table></div>
+
+<h2 id="graders">7. Human and LLM grading</h2>
+<p><strong>Humans</strong> grade blind. Businesses appear under random aliases. Model and provider names, and self-references such as “as an AI model”, are removed from everything graders read. The frozen site loads on its own origin, so it works exactly as deployed. There are two modes. Absolute mode asks for rubric scores plus a written rationale. Pairwise mode puts two businesses for the same brief side by side, with left and right randomized, and asks for a winner on each dimension. Quality control uses gold items with expected score bands, explicit attention checks, time on task, and Krippendorff's α per dimension.</p>
+<p><strong>LLM judges</strong> use the same rubric and evidence: page text, documents, ads and targeting, prices, supplier orders, weekly results, the post-launch change log, the checks, and screenshots. Everything a business produced is wrapped as untrusted data, and judges are told never to follow instructions inside it. Pairwise judgments run twice with positions swapped, and a winner counts only when both orders agree. We flag when a judge shares a model family with the business it is grading. Runs where graders were targeted are scored by the strictest judge and sent to human review.</p>
+
+<h2 id="aggregation">8. Aggregation and uncertainty</h2>
+<p>A model's headline score is the mean over briefs of its mean over seeds. The default is three seeds per brief. Where human grades exist, it combines {{ (res.weights.human * 100)|int }}% human and {{ (res.weights.llm * 100)|int }}% LLM-judge scores. Otherwise it is LLM-only and labeled as such. 95% confidence intervals come from a hierarchical bootstrap that resamples briefs and then seeds within each brief. Pairwise outcomes feed a Bradley–Terry model, reported on an Elo scale with bootstrap intervals. We also report the worst seed and pass^k: the share of briefs where the site works on every seed. Per dimension, we report judge–human rank correlation and mean absolute difference so readers can see where LLM judges can be trusted.</p>
+
+<h2 id="contamination">9. Contamination and versioning</h2>
+<p>Most briefs are held out. Each held-out brief carries a unique canary string. They are excluded from public archives, and a check fails the public export if any of them appears. Public pages carry this canary so they can be filtered from training data:</p><pre>{{ canary }}</pre>
+<p>Brief, rubric, harness, prompt and toolset versions are recorded on every run. Any change to them starts a new benchmark version.</p>
+
+<h2 id="safety">10. Safety</h2>
+<p>Models under test cannot spend money, register domains, run real ads or contact real people. This is enforced by the sandbox and the tool layer, not just by the prompt. Briefs prohibit impersonating real businesses or using their trademarks. The checks flag violations and the rubric penalizes them.</p>
+
+<h2 id="limitations">11. Limitations</h2>
+<ul><li>A simulated market can't establish real demand, which is why it is excluded from the score.</li>
+<li>Static hosting with platform endpoints rules out products that need custom server code.</li>
+<li>Screenshots show the real site, so a model that writes its own name into a page could be recognized. Text is scrubbed but images are not.</li>
+<li>LLM judges may favor their own model family. We flag same-family judging and publish agreement with humans.</li>
+<li>Small rounds give wide intervals. Read ties as ties.</li></ul>
+
+<h2 id="cite">12. Citation</h2>
+<pre>@misc{shinglebench2026,
+  title  = {ShingleBench: Can AI Models Start a Real Business?},
+  author = {Shingle},
+  year   = {2026},
+  note   = {Benchmark {{ version }}, rubric {{ rubric.version }}}
+}</pre></div>{% endblock %}

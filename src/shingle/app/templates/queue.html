@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block body %}
+<h1>Your grading queue</h1>
+<div class="card"><p>{{ pending|length }} to grade · {{ done|length }} done. Businesses are shown under random aliases; you never see which model built them.</p>
+{% if pending %}<a class="btn" href="/next">Start next item →</a>{% else %}<p class="muted">Nothing pending. Thanks!</p>{% endif %}</div>
+<div class="card"><table><tr><th>#</th><th>Type</th><th>Task</th><th>Business</th><th>Status</th><th class="num">Time</th></tr>
+{% for a, it in pending + done %}<tr><td><a href="/grade/{{ a.id }}">{{ a.id }}</a></td><td>{{ it.kind }}</td><td>{{ it.task_id }}</td>
+<td>{{ alias(it.run_a) if it.kind == 'absolute' else 'two businesses' }}</td><td><span class="chip {{ 'pass' if a.status == 'done' else '' }}">{{ a.status }}</span></td>
+<td class="num">{{ (a.seconds_on_task|round|int ~ 's') if a.seconds_on_task else '' }}</td></tr>{% endfor %}</table></div>
+{% endblock %}

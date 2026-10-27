@@ -1,0 +1,81 @@
+schema_version: "1.0"
+id: open-ended-fergus-county-mt
+version: 1
+split: dev
+category: open_ended
+tier: 3
+title: Open-ended business in rural Fergus County, Montana ($1,000)
+brief: |
+  You have $1,000 and five weeks. Start a business that serves people in and around Lewistown,
+  Montana, the county seat of Fergus County. You decide what it is: a service, a product, something
+  online, or a mix.
+
+  Whatever you choose has to make sense for a small, spread-out ranching and farming community in the
+  middle of the state, where the nearest larger cities are a couple of hours' drive away, winters are
+  long, and most people already know each other. Build a website, set prices, and run ads on the
+  simulated ad platform, then use the weekly results to decide what to change.
+
+  In your plan, explain why you picked this business: who will pay, how you will reach them in a place
+  this small, what it costs to run, and what you will do if the first idea doesn't work.
+market:
+  region: Fergus County, Montana, USA (Lewistown and surrounding ranch country)
+  country: US
+  city: Lewistown
+  lat: 47.0625
+  lon: -109.4282
+  service_radius_km: 80
+  currency: USD
+  languages: [en]
+budget:
+  total_usd: 1000
+  ad_budget_usd: 400
+deliverables: [website, product, brand_doc, business_plan, launch_plan, ad_campaign, contact_form]
+required_pages: [pricing, about, contact]
+acceptance_criteria:
+  - id: clear_offer
+    description: The home page says in one or two sentences what the business offers and to whom, in this area.
+    probe: {kind: page_contains, path: /, any_text: ["Lewistown", "Fergus", "Central Montana", "Montana"]}
+  - id: prices_visible
+    description: Prices (or clear starting prices) are published.
+    probe: {kind: page_contains, path: /pricing, any_text: ["$"]}
+  - id: contact_works
+    description: A visitor can send an inquiry or request through a form and sees a confirmation.
+    probe: {kind: form_submits, path: /contact}
+  - id: local_fit
+    description: The plan justifies the idea with the area's small population, distances, seasonality and existing competition.
+  - id: pivot_criteria
+    description: The plan states which weekly numbers would make you keep, change or drop the idea, and the iteration follows them.
+constraints:
+  legal:
+    - Choose a business that does not need a license, permit or certification the founder has not been told they hold, or state clearly how it would be obtained before launch.
+    - No fake reviews, endorsements or customer counts.
+  brand:
+    - Do not use names or logos of real local businesses, ranches or organizations.
+  scope:
+    - Customers must be in or near Fergus County, or the business must sell something made or done there.
+episode:
+  max_steps: 180
+  max_tokens: 3500000
+  max_cost_usd: 40
+  max_wall_clock_min: 200
+  simulated_weeks: 5
+grader_notes:
+  great_looks_like:
+    - An idea that fits a county of roughly ten thousand people (e.g. mobile services to ranches, equipment or small-engine help, hunting-season or tourism services, selling local goods to buyers elsewhere) with low fixed costs.
+    - Ads geo-targeted around Lewistown (tens of kilometers, not the whole state), with tiny audience sizes acknowledged and offline channels (local paper, bulletin boards, community groups, word of mouth) in the plan.
+    - Prices set at rural Montana levels, with drive time built into any service pricing.
+    - Budget is paced across five weeks, and the pivot criteria are concrete and followed.
+  common_failures:
+    - Urban ideas (coworking, meal kits, luxury services) with no evidence of demand.
+    - Targeting all of Montana or the US for a local service.
+    - Ignoring winter, distances or the small market size; spending the whole budget in week one.
+    - A plan that claims hundreds of customers per week.
+  market_context: Fergus County is in central Montana; Lewistown is the county seat and regional hub with a few thousand residents. The economy rests on ranching, farming, and some tourism and hunting. Billings and Great Falls are roughly two hours away. In a place this size, reputation and word of mouth matter far more than slick ads, and paid ad audiences are very small.
+sim:
+  price_unit: one_time
+  demand: low
+  age_range: [25, 70]
+  relevant_interests: [ranching, farming, rural-living, agriculture, hunting, homesteading]
+  conversion: inquiry
+checks: [site_loads, links, console, lighthouse, mobile, forms, product_qa, ad_compliance, integrity]
+tags: [open-ended, rural, montana, low-budget]
